@@ -11,10 +11,10 @@
 
     function __construct(){
 
-      $this->servidor= "todomasfacil.cl";
-      $this->usuario= "billy722";
-      $this->clave= "ixLnTbyd";
-      $this->bd= "todomasfacil";
+      $this->servidor= "146.66.99.89";
+      $this->usuario= "daemmulc_ccla";
+      $this->clave= "ccla123";
+      $this->bd= "daemmulc_ccla";
 
 
     }
@@ -39,7 +39,7 @@
       		if ($con === false){
       			  die("ERROR: No se pudo conectar. ". mysqli_connect_error());
       		}else{
-              // echo "Conectada";
+             echo "Conectada";
               mysqli_set_charset($con,"utf8");
               // echo "ejecuta conexion: sevidor:".$this->servidor." usuario: ".$this->usuario." clave: ".$this->clave." bd: ".$this->bd;
 

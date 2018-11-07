@@ -2,6 +2,11 @@
 require("comun.php");
 require("./clases/Empresa.php");
 require("./clases/Categoria.php");
+require_once("./clases/Conexion.php");
+
+$con = new Conexion();
+$con->conectar();
+
  ?>
 <!DOCTYPE html>
 <html lang="es">
