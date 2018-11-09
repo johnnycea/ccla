@@ -8,7 +8,7 @@ require("./clases/Funciones.php");
 <html lang="es">
      <head>
 
-       <title>Quienes somos</title>
+       <title>Empresas</title>
        <?php
        cargarHead();
         ?>

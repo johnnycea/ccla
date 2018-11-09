@@ -1,9 +1,9 @@
 <?php
 require_once '../../clases/Conexion.php';
-require_once '../../clases/Empresa.php';
+require_once '../../clases/Noticia.php';
 
-$Empresa = new Empresa();
-$listado_empresas = $Empresa->obtenerEmpresasActivasInactivas();
+$Noticia = new Noticia();
+$listado_noticias = $Noticia->obtenerEmpresasActivasInactivas();
 
 
     echo '
@@ -18,7 +18,7 @@ $listado_empresas = $Empresa->obtenerEmpresasActivasInactivas();
        <tbody>';
 
           $contador = 1;
-          while($filas = $listado_empresas->fetch_array()){
+          while($filas = $listado_noticias->fetch_array()){
 
            $clase="";
            if($filas['estado_empresa']==2){

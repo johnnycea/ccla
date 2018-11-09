@@ -1,11 +1,7 @@
 <?php
 require("comun.php");
-require("./clases/Empresa.php");
+require("./clases/Noticia.php");
 require("./clases/Categoria.php");
-require_once("./clases/Conexion.php");
-
-$con = new Conexion();
-$con->conectar();
 
  ?>
 <!DOCTYPE html>
@@ -131,7 +127,7 @@ $con->conectar();
 
 
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 
   <div id="contenedor_buscador" class="row justify-content-center align-self-center col-12  ">
 
@@ -151,7 +147,7 @@ $con->conectar();
     <div class="row">
 
         <!--Camera Slide-->
-         <div class="camera_wrap">
+         <!-- <div class="camera_wrap">
             <div data-src="./img/principal.jpg">
                 <img src="./img/principall.jpg">
             </div>
@@ -163,8 +159,8 @@ $con->conectar();
             </div>
 
         </div>   <!--------Camera Slide End-->
-    </div>   <!--***********  Row End-->
-</div>  <!--************** Container End-->
+    <!-- </div>   <!--***********  Row End-->
+<!-- </div>  <!--************** Container End-->
 
 
   <?php cargarCategorias(); ?>
@@ -172,28 +168,80 @@ $con->conectar();
 <br>
 
 <!-- BANNER EMPRESAS -->
-<div class="container-fluid">
+<!-- <div class="container-fluid">
 <div class="item">
     <ul id="content-slider" class="content-slider">
       <?php
-          $Empresa = new Empresa(); //instancio lo de la clase categoria
-          $respuesta = $Empresa->obtenerEmpresasActivas();
-
-            while ($filas = $respuesta->fetch_array()) {
-              echo '
-                    <div>
-                      <a href="./descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'">
-                        <img class="card-img-top" style="height:250px" src="./imagenes/empresas/'.$filas['ruta_foto'].'" /></a>
-                      </a>
-                    </div>
-                  ';
-           }
+          // $Empresa = new Empresa(); //instancio lo de la clase categoria
+          // $respuesta = $Empresa->obtenerEmpresasActivas();
+          //
+          //   while ($filas = $respuesta->fetch_array()) {
+          //     echo '
+          //           <div>
+          //             <a href="./descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'">
+          //               <img class="card-img-top" style="height:250px" src="./imagenes/empresas/'.$filas['ruta_foto'].'" /></a>
+          //             </a>
+          //           </div>
+          //         ';
+           // }
        ?>
 
     </ul>
 </div>
+</div> -->
+<h1>Noticias</h1>
+<div class="col-md-4">
+
+    <div class=" card bg-white border-info mb-3 text-black" >
+          <a href="descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'" >
+          <img class="card-img-top" style="height:200px" src="./imagenes/noticias/'.$filas['ruta_foto'].'" alt="Card image">
+          </a>
+
+          <div class="card-body">
+            <!-- <h5 class="card-title">'.$filas['nombre_empresa'].'</h5>
+            <p class="card-text">'.substr($filas['descripcion_empresa'], 0, 100).' ...</p> -->
+
+          </div>
+     </div>
 </div>
 
+
+<!-- <div id="contenedor_resultado_busqueda">
+
+
+
+ <?php
+
+
+  // echo "esta buscando: ".$campo_busqueda;
+
+           // $empresa = new Empresa();
+           // $respuesta = $empresa->buscarEmpresas($campo_busqueda);
+           //
+           //    while ($filas = $respuesta->fetch_array()) {
+           //      // echo "\".$id_categoria\".";
+           //
+           //
+           //     echo '
+           //     <div class="col-md-4">
+           //
+           //         <div class=" card bg-white border-info mb-3 text-black" >
+           //               <a href="descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'" >
+           //               <img class="card-img-top" style="height:200px" src="./imagenes/empresas/'.$filas['ruta_foto'].'" alt="Card image">
+           //               </a>
+           //
+           //               <div class="card-body">
+           //                 <h5 class="card-title">'.$filas['nombre_empresa'].'</h5>
+           //                 <p class="card-text">'.substr($filas['descripcion_empresa'], 0, 100).' ...</p>
+           //
+           //               </div>
+           //          </div>
+           //     </div>';
+
+             // }
+
+?>
+</div> -->
 
 
 
