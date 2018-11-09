@@ -127,7 +127,7 @@ require("./clases/Categoria.php");
 
 
 
-<!-- <div class="container-fluid">
+<div class="container-fluid">
 
   <div id="contenedor_buscador" class="row justify-content-center align-self-center col-12  ">
 
@@ -147,28 +147,62 @@ require("./clases/Categoria.php");
     <div class="row">
 
         <!--Camera Slide-->
-         <!-- <div class="camera_wrap">
-            <div data-src="./img/principal.jpg">
-                <img src="./img/principall.jpg">
+         <div class="camera_wrap">
+            <div data-src="./img/principal1.jpg">
+                <img src="./img/principal1.jpg">
             </div>
             <div data-src="./img/principal2.jpg">
                 <img src="./img/principal2.jpg" class="img-responsive">
             </div>
-            <div data-src="./img/principal3.jpg">
-                <img src="./img/principal3.jpg">
-            </div>
 
-        </div>   <!--------Camera Slide End-->
-    <!-- </div>   <!--***********  Row End-->
-<!-- </div>  <!--************** Container End-->
+        </div>
+         <!--------Camera Slide End-->
+    </div>   <!--***********  Row End-->
+</div>  <!--************** Container End-->
+
+<br>
+<br>
+<br>
+
+<div class="row">
+  <?php
+
+  $Noticia = new Noticia();
+  $listado_noticias = $Noticia->obtenerNoticiasActivas();
 
 
-  <?php cargarCategorias(); ?>
+            $contador = 1;
+            while($filas = $listado_noticias->fetch_array()){
+
+             $clase="";
+             if($filas['estado']==2){
+               $clase="table-warning";
+             }
+
+             echo ' <div class=" col-md-4">
+                      <div class="card" class="col-md-3">
+                          <img class="card-img-top" src="./imagenes/noticias/'.$filas['ruta_imagen'].'" alt="Card image">
+
+                          <div class="card-body">
+                            <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
+                            <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['texto'].'</span></p>
+                            <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$filas['fecha'].'</span></p>
+
+                          </div>
+
+                       </div>
+                    </div>';
+
+              $contador++;
+
+           }
+  ?>
+</div>
 
 <br>
 
 <!-- BANNER EMPRESAS -->
-<!-- <div class="container-fluid">
+<div class="container-fluid">
 <div class="item">
     <ul id="content-slider" class="content-slider">
       <?php
@@ -183,12 +217,12 @@ require("./clases/Categoria.php");
           //             </a>
           //           </div>
           //         ';
-           // }
+          //  }
        ?>
 
     </ul>
 </div>
-</div> -->
+</div>
 <h1>Noticias</h1>
 <div class="col-md-4">
 

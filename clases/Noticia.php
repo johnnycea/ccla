@@ -102,6 +102,14 @@ Class Noticia{
      return $resultado_consulta;
 
   }
+  public function obtenerNoticiasActivas(){
+     $Conexion = new Conexion();
+     $Conexion = $Conexion->conectar();
+
+     $resultado_consulta = $Conexion->query("SELECT * FROM vista_noticias where tipo_imagen=1 and estado=1");
+     return $resultado_consulta;
+
+  }
 
   public function obtenerEmpresasActivasInactivas(){
      $Conexion = new Conexion();

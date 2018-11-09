@@ -223,25 +223,42 @@ function cargarMenuPrincipal(){
 
 <style>
 .bg-light {
-    background-color: #ffffff!important;
+    background-color: #2d5386!important;
 }
 .nav-link{
-    background-color: #fc8132!important;
+    background-color: #2d5386!important;
     color:white!important;
     font-size: 20px;
     margin-right: 2px;
     padding-top:15px;
     padding-bottom:15px;  /*inferior*/
 }
+#menu_principal{
+  margin:0;
+  padding: 0;
+}
 </style>
 
-    <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container-fluid">
+    <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light ">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="./index.php">
         <img src="./img/logoccla.png" width="240" height="110" class="d-inline-block align-top" alt="">
       </a>
+
+    </nav>
+
+ </div>
+</div>
+
+
+<div id="menu_principal" class="container-fluid">
+    <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
 
@@ -266,51 +283,12 @@ function cargarMenuPrincipal(){
     </nav>
 
  </div>
-
-  <!-- modal -->
-
-
-  <!-- The Modal -->
- <div class="modal fade" id="modal-id-1">
-   <div class="modal-dialog modal-dialog-centered">
-     <div class="modal-content">
-
-       <!-- Modal Header -->
-       <div class="modal-header">
-         <h4 class="modal-title">INGRESAR</h4>
-         <button type="button" class="close" data-dismiss="modal">&times;</button>
-       </div>
-
-       <!-- Modal body -->
-       <div class="modal-body">
-         <form class="" name="inicio_sesion" id="inicio_sesion" action="">
-           <div class="form-group">
-             <input type="text" class="form-control" onkeypress="" placeholder="Ingrese su rut" id="run_usuario" name="run_usuario" required autofocus>
-             <br>
-             <input type="password" class="form-control" placeholder="Contraseña" name="password_usuario" required>
-
-           </div>
-
-             <button class="btn btn-lg btn-primary btn-block" type="submit"   >
-                 Aceptar</button>
-                 <button class="btn btn-lg btn-danger btn-block" type="" data-dismiss="modal">
-                 Cancelar</button>
-          </form>
-       </div>
-
-       <!-- Modal footer -->
-       <div class="modal-footer">
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       </div>
-
-     </div>
-   </div>
- </div>
-
-
+</div>
 
 <?php
 }
+
+
 function sub_footer(){
  ?>
 
