@@ -56,43 +56,43 @@ function comprobarSession(){
     }
     </style>
 
-      <div id="listado_categorias" class="container-fluid">
+      <!-- <div id="listado_categorias" class="container-fluid">
         <center>
            <div class="row justify-content-center">
 
              <?php
-                 $Categoria = new Categoria(); //instancio lo de la clase categoria
-                 $respuesta = $Categoria->obtenerCategorias();
-
-
-                   while ($filas = $respuesta->fetch_array()) {
-
-                     echo '<div class=" d-none d-md-block categorias-md col-md-1">
-                           <center>
-                             <a href="categorias.php?id='.$filas['id_categoria'].'">
-                                <span class="'.$filas['icono'].'"></span>
-                                <br />
-                                <label for="">'.$filas['descripcion_categoria'].'</label>
-                              </a>
-                           </center>
-                              <span>&nbsp&nbsp</span>
-                           </div>';
-
-                     echo '<div class="col-3 d-md-none col-md-3 categorias">
-                            <center>
-                             <a href="categorias.php?id='.$filas['id_categoria'].'">
-                                <span class="'.$filas['icono'].'"></span>
-                                <br />
-                                <label for="">'.$filas['descripcion_categoria'].'</label>
-                              </a>
-                            </center>
-
-                           </div>';
-                  }
+                 // $Categoria = new Categoria(); //instancio lo de la clase categoria
+                 // $respuesta = $Categoria->obtenerCategorias();
+                 //
+                 //
+                 //   while ($filas = $respuesta->fetch_array()) {
+                 //
+                 //     echo '<div class=" d-none d-md-block categorias-md col-md-1">
+                 //           <center>
+                 //             <a href="categorias.php?id='.$filas['id_categoria'].'">
+                 //                <span class="'.$filas['icono'].'"></span>
+                 //                <br />
+                 //                <label for="">'.$filas['descripcion_categoria'].'</label>
+                 //              </a>
+                 //           </center>
+                 //              <span>&nbsp&nbsp</span>
+                 //           </div>';
+                 //
+                 //     echo '<div class="col-3 d-md-none col-md-3 categorias">
+                 //            <center>
+                 //             <a href="categorias.php?id='.$filas['id_categoria'].'">
+                 //                <span class="'.$filas['icono'].'"></span>
+                 //                <br />
+                 //                <label for="">'.$filas['descripcion_categoria'].'</label>
+                 //              </a>
+                 //            </center>
+                 //
+                 //           </div>';
+                 //  }
               ?>
             </div>
           </center>
-       </div>
+       </div> -->
 
   <?php
 }
@@ -191,7 +191,7 @@ function cargarMenuConfiguraciones(){
   }
 
   echo'<hr>';
-  
+
   echo '<a href="./cerrarSesion.php" class=" btn btn-danger col-12">Cerrar Sesión </a>';
 
   echo'<hr>';
@@ -240,7 +240,7 @@ function cargarMenuPrincipal(){
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="./index.php">
-        <img src="./img/logo.png" width="240" height="110" class="d-inline-block align-top" alt="">
+        <img src="./img/logoccla.png" width="240" height="110" class="d-inline-block align-top" alt="">
       </a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >

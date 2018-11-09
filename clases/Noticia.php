@@ -4,71 +4,27 @@ require_once 'Conexion.php';
 
 Class Empresa{
 
-  private $id_empresa;
-  private $nombre_empresa;
-  private $descripcion_empresa;
-  private $categoria_empresa;
-  private $estado_empresa;
-  private $video_empresa;
-  private $coordenadas_empresa;
-  private $facebook;
-  private $instagram;
-  private $horario;
-  private $id_imagen;
+  private $id_noticia;
+  private $titulo;
+  private $texto;
 
-  public function setCategoria($id_recibido){
-    $this->categoria_empresa = $id_recibido;
-  }
-  public function setId($id_recibidoE){
-    $this->id_empresa = $id_recibidoE;
+  public function setIdNoticia($id_noticia){
+    $this->id_noticia = $id_noticia;
   }
 
-  public function setNombre ($nombre_empresa){
-    $this->nombre_empresa=$nombre_empresa;
+  public function setTitulo ($noticia){
+    $this->noticia=$noticia;
   }
 
-  public function setDescripcion ($descripcion_empresa){
-    $this->descripcion_empresa=$descripcion_empresa;
+  public function setTexto ($texto){
+    $this->texto=$texto;
   }
 
-  public function setCategoriaEmpresa ($categoria_empresa){
-    $this->categoria_empresa=$categoria_empresa;
-  }
-
-  public function setEstado ($estado_empresa){
-    $this->estado_empresa=$estado_empresa;
-  }
-
-  public function setVideo ($video_empresa){
-    $this->video_empresa=$video_empresa;
-  }
-
-    public function setCoordenadas ($coordenadas_empresa){
-      $this->coordenadas_empresa=$coordenadas_empresa;
-    }
-
-    public function setFacebook ($facebook){
-      $this->facebook=$facebook;
-    }
-
-    public function setInstagram ($instagram){
-      $this->instagram=$instagram;
-    }
-
-    public function setHorario ($horario){
-      $this->horario=$horario;
-    }
-
-    public function setIdImagen ($id_imagen){
-      $this->id_imagen=$id_imagen;
-    }
-
-  public function crearEmpresa(){
+  public function crearNoticia(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert INTO tb_empresas (nombre_empresa, descripcion_empresa, categoria_empresa, video_empresa, coordenadas, facebook, instagram, horario)
-                        VALUES ('".$this->nombre_empresa."', '".$this->descripcion_empresa."', '".$this->categoria_empresa."', '".$this->video_empresa."', '".$this->coordenadas_empresa."', '".$this->facebook."', '".$this->instagram."','".$this->horario."');";
+    $consulta = "insert into tb_noticias (id_noticia, titulo, texto) VALUES ('".$this->titulo."', '".$this->texto."');";
 
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");
@@ -80,7 +36,7 @@ Class Empresa{
     }
   }
 
-  public function modificarEmpresa(){
+  public function modificarNoticias(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
