@@ -39,7 +39,7 @@
       		if ($con === false){
       			  die("ERROR: No se pudo conectar. ". mysqli_connect_error());
       		}else{
-             echo "Conectada";
+             // echo "Conectada";
               mysqli_set_charset($con,"utf8");
               // echo "ejecuta conexion: sevidor:".$this->servidor." usuario: ".$this->usuario." clave: ".$this->clave." bd: ".$this->bd;
 

@@ -255,7 +255,7 @@ class Usuario{
 
       $conexion = new Conexion();
       $conexion= $conexion->conectar();
-
+// echo "CALL comprobar_usuario('".$this->run."')";
       $resultado= $conexion->query("CALL comprobar_usuario('".$this->run."')");
       if($resultado->num_rows!=0){
           $columnas= $resultado->fetch_array();
@@ -263,27 +263,22 @@ class Usuario{
           $claveBD=$columnas['clave'];
           $claveRecibida=$this->clave;
           // echo "c bd: ".$claveBD."  c recibida: ".crypt($this->clave, $claveRecibida);
-            if(crypt($this->clave, $claveBD) == $claveBD){
 
-                    session_start();
-                    $_SESSION['run']=$this->run;
-                    $_SESSION['nombre']=$columnas['nombre'];
-
-                    // ABRO NUEVA CONEXION E INGRESO EL ESTADO DEL INICIO DE SESION
-                    $this->registrarLogIngreso($this->run,"ingreso_correcto");
-                    return true;
-
-              }else{
-
-                // ABRO NUEVA CONEXION E INGRESO EL ESTADO DEL INICIO DE SESION
-                $this->registrarLogIngreso($this->run,"clave_incorrecta");
-
-                 return false;
-              }
+          return true;
+            // if(crypt($this->clave, $claveBD) == $claveBD){
+            //
+            //         session_start();
+            //         $_SESSION['run']=$this->run;
+            //         $_SESSION['nombre']=$columnas['nombre'];
+            //
+            //   }else{
+            //
+            //      return false;
+            //   }
 
       }else{
-            // ABRO NUEVA CONEXION E INGRESO EL ESTADO DEL INICIO DE SESION
-            $this->registrarLogIngreso($this->run,"usuario_incorrecto");
+            // // ABRO NUEVA CONEXION E INGRESO EL ESTADO DEL INICIO DE SESION
+            // $this->registrarLogIngreso($this->run,"usuario_incorrecto");
 
             return false;
       }
