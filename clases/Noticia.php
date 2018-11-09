@@ -2,11 +2,12 @@
 
 require_once 'Conexion.php';
 
-Class Empresa{
+Class Noticia{
 
   private $id_noticia;
   private $titulo;
   private $texto;
+  private $estado;
 
   public function setIdNoticia($id_noticia){
     $this->id_noticia = $id_noticia;
@@ -18,6 +19,9 @@ Class Empresa{
 
   public function setTexto ($texto){
     $this->texto=$texto;
+  }
+  public function setEstado ($estado){
+    $this->estado=$estado;
   }
 
   public function crearNoticia(){
@@ -90,13 +94,11 @@ Class Empresa{
 
   }
 
-  public function obtenerEmpresasActivas(){
+  public function obtenerNoticias(){
      $Conexion = new Conexion();
      $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("SELECT * FROM tb_empresas e
-                                              left join tb_imagenes_empresa ie on e.id_empresa=ie.id_empresa
-                                              where ie.tipo_imagen=1 AND estado_empresa=1");
+     $resultado_consulta = $Conexion->query("SELECT * FROM vista_noticias where tipo_imagen=1");
      return $resultado_consulta;
 
   }

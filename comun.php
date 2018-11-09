@@ -169,10 +169,10 @@ function VentanaCargando(){
 function cargarMenuConfiguraciones(){
   $url= basename($_SERVER['PHP_SELF']);
 
-  if($url=="administracion_empresas.php"){
-      echo '<a href="./administracion_empresas.php" class="active btn btn-info col-12">Empresas </a>';
+  if($url=="administracion_noticias.php"){
+      echo '<a href="./administracion_noticias.php" class="active btn btn-info col-12">Noticias </a>';
   }else{
-      echo '<a href="./administracion_empresas.php" class="btn btn-info col-12">Empresas </a>';
+      echo '<a href="./administracion_noticias.php" class="btn btn-info col-12">Noticias </a>';
   }
   echo'<hr>';
 

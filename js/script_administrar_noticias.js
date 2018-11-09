@@ -1,25 +1,25 @@
 
-listarEmpresas();
+listarNoticias();
 
-function listarEmpresas(){
+function listarNoticias(){
 
 
 		$.ajax({
-			url:"./metodos_ajax/empresas/mostrar_empresas.php",
+			url:"./metodos_ajax/noticias/mostrar_noticias.php",
 			method:"POST",
 			success:function(respuesta){
-				 $("#contenedor_listado_empresas").html(respuesta);
+				 $("#contenedor_listado_noticias").html(respuesta);
 			}
 		});
 }
 
 
-function guardar_nueva_empresa(){
+function guardar_nueva_noticia(){
 
-	var formData = new FormData(document.getElementById("mantenedor_ingresar_empresa"));
+	var formData = new FormData(document.getElementById("mantenedor_ingresar_noticia"));
 
 			$.ajax({
-				url:"./metodos_ajax/empresas/crear_empresa.php",
+				url:"./metodos_ajax/noticias/crear_noticia.php",
 				dataType: "html",
 				type:'post',
 				data: formData,
@@ -31,7 +31,7 @@ function guardar_nueva_empresa(){
 
 					 if(respuesta==1){
 						 swal("Guardado","Los datos se han guardado correctamente.","success");
-						 eliminarCamposEmpresa();
+						 eliminarCamposNoticia();
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 					 }
@@ -40,13 +40,13 @@ function guardar_nueva_empresa(){
 
 }
 
-function modificar_empresa(){
+function modificar_noticia(){
   alert("contador: "+$("#contadorFotos").val());
 
-	var formData = new FormData(document.getElementById("mantenedor_modificar_empresa"));
+	var formData = new FormData(document.getElementById("mantenedor_modificar_noticia"));
 
 			$.ajax({
-				url:"./metodos_ajax/empresas/editar_empresa.php",
+				url:"./metodos_ajax/noticias/editar_noticia.php",
 				dataType: "html",
 				type:'post',
 				data: formData,
@@ -58,8 +58,8 @@ function modificar_empresa(){
 
 						 if(respuesta==1){
 							 swal("Guardado","Los datos se han guardado correctamente.","success");
-							 listarEmpresas();
-							 eliminarCamposEmpresa();
+							 listarNoticias();
+							 eliminarCamposNoticia();
 						 }else if(respuesta==2){
 							 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 
@@ -68,7 +68,7 @@ function modificar_empresa(){
 			});
 }
 
-function eliminarEmpresa(id){
+function eliminarNoticia(id){
 
 	swal({
 			title: "¿Eliminar Usuario?",
@@ -83,13 +83,13 @@ function eliminarEmpresa(id){
 			function(isConfirm){
 					if (isConfirm) {
 			$.ajax({
-				url:"./metodos_ajax/empresas/eliminar_empresa.php?id_empresa="+id,
+				url:"./metodos_ajax/noticias/eliminar_noticia.php?id_noticia="+id,
 				method:"POST",
 				success:function(respuesta){
 					 // alert(respuesta);
 					 if(respuesta==1){
 						 swal("Eliminado correctamente","Los datos se han guardado correctamente.","success");
-						 listarEmpresas();
+						 listarNoticias();
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 					 }
@@ -102,11 +102,11 @@ function eliminarEmpresa(id){
 		}
 
 
-function listarImagenesEmpresa(){
+function listarImagenesNoticia(){
 
 
 			$.ajax({
-				url:"./metodos_ajax/empresas/mostrar_imagenes_empresa.php?id_empresa="+id_empresa,
+				url:"./metodos_ajax/noticias/mostrar_imagenes_noticia.php?id_noticia="+id_noticia,
 				method:"POST",
 				success:function(respuesta){
 					$("#divInferiorImagenesActuales").html(respuesta);
@@ -148,20 +148,20 @@ function removerCampoFoto(){
 							}
 }
 
-function eliminarImagenEmpresa(idFoto){
+function eliminarImagenNoticia(idFoto){
 					swal({title:"Cargando", text:"Espere un momento.", showConfirmButton:true,allowOutsideClick:false,showCancelButton: false,closeOnConfirm: false});
 
 					$.ajax({
-						url:"./metodos_ajax/empresas/eliminar_imagen.php?id_imagen="+idFoto,
+						url:"./metodos_ajax/noticias/eliminar_imagen.php?id_imagen="+idFoto,
 						success:function(respuesta){
 							alert(respuesta);
 							 if(respuesta==1){
 
-								 listarImagenesEmpresa();
+								 listarImagenesNoticia();
 								 swal("Operacion exitosa!", "Imagen Eliminada", "success");
 							 }
 							 else if(respuesta==2){
-								 swal("Empresa debe tener al menos una imagen!", "", "warning");
+								 swal("Noticia debe tener al menos una imagen!", "", "warning");
 							 }
 							 else{
 								 swal("Operacion exitosa!", "Imagen Eliminada", "success");

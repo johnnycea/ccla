@@ -210,7 +210,7 @@ $("#formulario").submit(function(event){
               $('#botonIngreso').addClass("btn-success");
               $('#botonIngreso').html('<span class="glyphicon glyphicon-ok"> </span>  Redireccionando...');
               setTimeout(function(){
-                window.location="./administracion_empresas.php";
+                window.location="./administracion_noticias.php";
               },2000);
 
             }else if(respuesta==2){
