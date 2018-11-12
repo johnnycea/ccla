@@ -88,22 +88,15 @@ Class Noticia{
 
   }
 
-  public function obtenerNoticias(){
+  public function obtenerNoticias($condiciones){
      $Conexion = new Conexion();
      $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("select * from vista_noticias where tipo_imagen=1");
+     $resultado_consulta = $Conexion->query("select * from vista_noticias ".$condiciones);
      return $resultado_consulta;
 
   }
-  public function obtenerNoticiasActivas(){
-     $Conexion = new Conexion();
-     $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("SELECT * FROM vista_noticias where tipo_imagen=1 and estado=1");
-     return $resultado_consulta;
-
-  }
 
   public function obtenerEmpresasActivasInactivas(){
      $Conexion = new Conexion();

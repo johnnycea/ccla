@@ -167,7 +167,7 @@ require("./clases/Noticia.php");
   <?php
 
   $Noticia = new Noticia();
-  $listado_noticias = $Noticia->obtenerNoticiasActivas();
+  $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1)");
 
 
             $contador = 1;
@@ -191,7 +191,7 @@ require("./clases/Noticia.php");
 
                        </div>
                     </div>';
-                    
+
               $contador++;
 
            }

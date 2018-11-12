@@ -1,5 +1,5 @@
-
 listarNoticias();
+
 
 function listarNoticias(){
 
@@ -88,8 +88,8 @@ function eliminarNoticia(id){
 				success:function(respuesta){
 					 // alert(respuesta);
 					 if(respuesta==1){
-						 swal("Eliminado correctamente","Los datos se han guardado correctamente.","success");
 						 listarNoticias();
+						 swal("Eliminado correctamente","Los datos se han guardado correctamente.","success");
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 					 }
@@ -119,9 +119,10 @@ function soloUnaPrincipal(id){//permite presionar solo un checkbox
 	 var cantidad= $("#contadorFotos").val();
 
 	 for(var c=1;c<=cantidad;c++){
-			 $('#tipoFoto'+c).prop('checked', false);
+			 $('#principal'+c).prop('checked', false);
 	 }
-	 $("#tipoFoto"+id).prop('checked', true);
+
+	 $("#principal"+id).prop('checked', true);
 
 }
 
@@ -132,7 +133,7 @@ function agregarCampoFoto(){
 					contadorTr++;
 
 					//alert(contadorTr);
-							$("#tablaFotosIngreso").append('<tr><td><input required class="form-control" name="foto'+contadorTr+'" type="file"></input></td><td><input class="form-control" type="checkbox" onclick="soloUnaPrincipal('+contadorTr+')" name="principal'+contadorTr+'" id="principal'+contadorTr+'"></td><td><input class="form-control" type="checkbox" onclick="soloUnaPrincipal('+contadorTr+')" name="afiche'+contadorTr+'" id="afiche'+contadorTr+'"></td></tr>');
+							$("#tablaFotosIngreso").append('<tr><td><input required class="form-control" name="foto'+contadorTr+'" type="file"></input></td><td><input class="form-control" type="checkbox" onclick="soloUnaPrincipal('+contadorTr+')" name="principal'+contadorTr+'" id="principal'+contadorTr+'"></td></tr>');
 							$("#contadorFotos").val(contadorTr);
 }
 

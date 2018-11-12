@@ -107,13 +107,11 @@ require_once './comun.php';
                                <thead>
                                  <th>Archivo</th>
                                 <th>Principal</th>
-                                 <th>Afiche</th>
                                </thead>
                                <tbody>
                                  <tr>
                                    <td><input class="form-control" name="foto1" type="file"></input></td>
-                                  <td><input class="form-control" type="checkbox" name="principal1"></td>
-                                   <td><input class="form-control" type="checkbox" name="afiche1"></td>
+                                  <td><input class="form-control" type="checkbox" onclick="soloUnaPrincipal(1)" name="principal1" id="principal1"></td>
                                  </tr>
                              </tbody>
                              </table>

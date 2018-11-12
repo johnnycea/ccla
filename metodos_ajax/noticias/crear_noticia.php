@@ -35,15 +35,11 @@ echo "la empresa creada es id_ ".$idCreada;
    for($c=1;$c<=$contadorFotos;$c++){
          $campo= "foto".$c;
          $principal= "principal".$c;
-         $afiche= "afiche".$c;
 
          $tipoImagenFinal = "0";
 
          if(isset($_REQUEST[$principal])){
            $tipoImagenFinal = "1";
-         }
-         if(isset($_REQUEST[$afiche])){
-           $tipoImagenFinal = "2";
          }
 
                      $numeroRandom= rand(5,1000).date("d").date("m").date("Y");
@@ -72,7 +68,7 @@ echo "la empresa creada es id_ ".$idCreada;
                                                $conexion = $conexion->conectar();
 
 
-                                               $consulta="insert into tb_imagenes_noticias(ruta_imagen, tipo_imagen, id_noticia) values('".$nombreImagenActual."',".$idCreada.",".$tipoImagenFinal.")";
+                                               $consulta="insert into tb_imagenes_noticias(ruta_imagen, tipo_imagen, id_noticia) values('".$nombreImagenActual."',".$tipoImagenFinal.",".$idCreada.")";
 
                                                if($conexion->query($consulta)){
                                                  echo "agrega foto";

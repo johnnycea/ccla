@@ -3,7 +3,7 @@ require_once '../../clases/Conexion.php';
 require_once '../../clases/Noticia.php';
 
 $Noticia = new Noticia();
-$listado_noticias = $Noticia->obtenerNoticias();
+$listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1 or estado=2)");
 
 
           $contador = 1;
