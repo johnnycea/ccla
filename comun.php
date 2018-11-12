@@ -262,21 +262,21 @@ function cargarMenuPrincipal(){
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
 
-          <ul class="navbar-nav mr-sm-2  ml-auto">
+          <ul class="navbar-nav mr-sm-1  ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">&nbsp;&nbsp;INICIO<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">&nbsp;&nbsp;INICIO<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;DESCUENTOS<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;DESCUENTOS<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="eventos.php">&nbsp;&nbsp;EVENTOS<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="eventos.php">&nbsp;&nbsp;EVENTOS<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;QUIENES SOMOS<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;QUIENES SOMOS<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="contactanos.php">&nbsp;&nbsp;CONTACTANOS<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="contactanos.php">&nbsp;&nbsp;CONTACTANOS<span class="sr-only"></span></a>
             </li>
           </ul>
       </div>
