@@ -2,12 +2,12 @@
 
 require_once './clases/Conexion.php';
 require_once './clases/Funciones.php';
-require_once './clases/Empresa.php';
+require_once './clases/Noticia.php';
 require_once './comun.php';
 
-require_once './clases/Usuario.php';
-$comprobar = new Usuario();
-$comprobar->verificarSesion();
+// require_once './clases/Usuario.php';
+// $comprobar = new Usuario();
+// $comprobar->verificarSesion();
 
 ?>
 
@@ -18,11 +18,11 @@ $comprobar->verificarSesion();
    <title>Empresa</title>
    <?php cargarHead(); ?>
 
-  <script src="./js/script_administrar_empresas.js"></script>
+  <script src="./js/script_administrar_noticias.js"></script>
 </head>
 <body>
 
-<?php cargarMenuPrincipal(); ?>
+<!-- <?php //cargarMenuPrincipal(); ?> -->
 
 <div class="container-fluid">
 
@@ -36,101 +36,57 @@ $comprobar->verificarSesion();
                                                     background: -ms-linear-gradient(left, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 72%, rgba(255,175,75,1) 100%);
                                                     background: linear-gradient(to right, rgba(255,146,10,1) 0%, rgba(255,175,75,1) 72%, rgba(255,175,75,1) 100%);
                                                     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff920a', endColorstr='#ffaf4b', GradientType=1 );">
-    <h5><B><FONT COLOR="white">  Ingresar Mantenedor Empresa</FONT></h5>
+    <h5><B><FONT COLOR="white">  Ingresar Mantenedor Noticias</FONT></h5>
   </div>
 <div class="container">
                      <!-- <form> -->
-              <form action="javascript:guardar_nueva_empresa()" id="mantenedor_ingresar_empresa" name="mantenedor_Ingresar_Empresa" method="POST">
+              <form action="javascript:guardar_nueva_noticia()" id="mantenedor_ingresar_noticia" name="mantenedor_ingresar_noticia" method="POST">
                   <fieldset>
                       <div class="row">
 
                      <div class="col-12 col-md-4">
                          <div>
                              <div class="form-group">
-                                 <label for="nombreEmpresa">Nombre Empresa:</label>
-                                 <input class="form-control" title="Debe ingresar empresa" required id="txt_nombre_empresa" name="txt_nombre_empresa" placeholder="Nombre empresa" type="text">
+                                 <label for="nombreTitulo">Titulo:</label>
+                                 <input class="form-control" title="Debe ingresar titulo" required id="txt_titulo" name="txt_titulo" placeholder="Nombre titulo" type="text">
                              </div>
                          </div>
 
                          <div>
                              <div class="form-group">
                                <br>
-                                 <label for="descripcion">Descripcion Empresa:</label>
-                                 <textarea name="txt_descripcion_empresa" id="txt_descripcion_empresa" class="form-control" rows="4" cols="100"></textarea>
+                                 <label for="descripcion">Texto:</label>
+                                 <textarea name="txt_texto" id="txt_texto" class="form-control" rows="4" cols="100"></textarea>
                              </div>
                          </div>
 
-                                 <div class="form-group">
+                                 <!-- <div class="form-group">
                                    <br>
-                                     <label for="coordenadas">Coordenadas:</label>
-                                     <textarea class="form-control" id="txt_coordenadas_empresa" name="txt_coordenadas_empresa" rows="4" cols="100"></textarea>
-                                 </div>
+                                     <label for="fecha">Fecha:</label>
+                                     <input type="datetime-local" name="fecha" value="">
+                                 </div> -->
 
-
-                         <div class="form-group">
-                             <label for="horario">Horario:</label>
-                             <textarea class="form-control" id="txt_horario" name="txt_horario" rows="4" cols="100"></textarea>
-                         </div>
 
                      </div>
                      <div class="col-12 col-md-3">
                              <div class="form-group">
 
-                                 <label for="categoria">Categoria:</label>
-                                      <select class="form-control" required name="categoria_empresa" id="categoria_empresa">
+                                 <label for="categoria">Estado:</label>
+                                      <select class="form-control" required name="estado" id="estado">
                                         <option value="" selected disabled>Seleccione:</option>
                                          <?php
-                                             require_once './clases/Categoria.php';
-                                             $TipoC= new Categoria();
-                                             $filasTipoC= $TipoC->obtenerCategorias();
+                                             require_once './clases/Estado_noticia.php';
+                                             $TipoE= new Estado_noticia();
+                                             $filasTipoE= $TipoE->obtenerEstadoNoticia();
 
-                                             foreach($filasTipoC as $tipo){
-                                                 echo '<option value="'.$tipo['id_categoria'].'" >'.$tipo['descripcion_categoria'].'</option>';
-                                             }
-                                          ?>
-                                     </select>
-                             </div>
-
-                             <div class="form-group">
-
-                                 <label for="estado">Estado:</label>
-                                      <select  class="form-control" required name="estado_empresa" id="estado_empresa">
-                                        <option value="" selected disabled>Seleccione:</option>
-                                         <?php
-                                             require_once './clases/Estado.php';
-                                             $TipoE= new Estado();
-                                             $filasTipoC= $TipoE->obtenerEstadoEmpresa();
-
-                                             foreach($filasTipoC as $tipo){
+                                             foreach($filasTipoE as $tipo){
                                                  echo '<option value="'.$tipo['id_estado'].'" >'.$tipo['descripcion_estado'].'</option>';
                                              }
                                           ?>
                                      </select>
                              </div>
-
-                         <div>
-                           <div class="form-group">
-                             <label for="video">Video:</label>
-                             <textarea class="form-control" title="iframe video" required id="txt_video_empresa" name="txt_video_empresa" placeholder="iframe video" cols="30" rows="2"></textarea>
-                             <!-- <input value="<?php// echo $filas['video_empresa']; ?>" class="form-control" title="iframe video" required id="txt_video_empresa" name="txt_video_empresa" placeholder="iframe video" type="text"> -->
-                           </div>
-                         </div>
-
-                             <div class="form-group">
-                                 <label for="video">Facebook:</label>
-                                 <input value="" class="form-control" title="facebook" required id="txt_facebook" name="txt_facebook" placeholder="Url:facebook" type="text">
-
-                             </div>
-
-                             <div class="form-group">
-                               <br>
-                                 <label for="video">Instagram:</label>
-                                 <input value="" class="form-control" title="instagram" required id="txt_instagram" name="txt_instagram" placeholder="Url:instagram" type="text">
-
-                             </div>
-
-
                      </div>
+
                      <div class="card col-12 col-md-5">
                        <h5 class="card-header">Agregar Imagenes</h5>
                        <div class="card-body">

@@ -2,9 +2,9 @@
 require_once 'comun.php';
 require_once './clases/Noticia.php';
 
-require_once './clases/Usuario.php';
-$comprobar = new Usuario();
-$comprobar->verificarSesion();
+// require_once './clases/Usuario.php';
+// $comprobar = new Usuario();
+// $comprobar->verificarSesion();
 
 ?>
 
@@ -16,7 +16,7 @@ $comprobar->verificarSesion();
 
 
 </style>
-   <title>Administracion de empresas</title>
+   <title>Administracion de noticia</title>
    <?php cargarHead(); ?>
 
   <script src="./js/script_administrar_noticias.js"></script>
@@ -49,7 +49,7 @@ $comprobar->verificarSesion();
           <div  style="" class=" card col-12">
             <div class="container">
               <br>
-                 <a href="./nueva_empresa.php" class="btn btn-success" >Crear nueva noticia</a>
+                 <a href="./nueva_noticia.php" class="btn btn-success" >Crear nueva noticia</a>
             </div>
             <div class="container">
               <br>

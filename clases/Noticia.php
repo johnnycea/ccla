@@ -12,23 +12,24 @@ Class Noticia{
   public function setIdNoticia($id_noticia){
     $this->id_noticia = $id_noticia;
   }
-
-  public function setTitulo ($noticia){
-    $this->noticia=$noticia;
+  public function setTitulo ($titulo){
+    $this->titulo=$titulo;
   }
-
   public function setTexto ($texto){
     $this->texto=$texto;
   }
   public function setEstado ($estado){
     $this->estado=$estado;
   }
+  public function setIdImagen ($id_imagen){
+    $this->id_imagen=$id_imagen;
+  }
 
   public function crearNoticia(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert into tb_noticias (id_noticia, titulo, texto) VALUES ('".$this->titulo."', '".$this->texto."');";
+    $consulta = "insert into tb_noticias (titulo, texto) VALUES ('".$this->titulo."', '".$this->texto."');";
 
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");
@@ -40,22 +41,15 @@ Class Noticia{
     }
   }
 
-  public function modificarNoticias(){
+  public function modificarNoticia(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "update tb_empresas
-         SET nombre_empresa = '".$this->nombre_empresa."',
-          descripcion_empresa = '".$this->descripcion_empresa."',
-          categoria_empresa = '".$this->categoria_empresa."',
-          estado_empresa = '".$this->estado_empresa."',
-          video_empresa = '".$this->video_empresa."',
-          coordenadas = '".$this->coordenadas_empresa."',
-          facebook = '".$this->facebook."',
-          instagram = '".$this->instagram."',
-          horario = '".$this->horario."'
-           WHERE (id_empresa = '".$this->id_empresa."');";
-
+    $consulta = "tb_noticias
+         SET titulo = '".$this->titulo."',
+          texto = '".$this->texto."',
+          estado = '".$this->estado."'
+           WHERE (id_noticia = '".$this->id_noticia."');";
     if($Conexion->query($consulta)){
         return true;
     }else{
@@ -64,11 +58,11 @@ Class Noticia{
     }
   }
 
-  public function eliminarEmpresa(){
+  public function eliminarNoticia(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "update tb_empresas set estado_empresa='3' WHERE (id_empresa = ".$this->id_empresa.") ";
+    $consulta = "update tb_noticias SET estado = '3' WHERE (id_noticia = ".$this->id_noticia.") ";
 
     if($Conexion->query($consulta)){
         return true;
@@ -79,11 +73,11 @@ Class Noticia{
 
   }
 
-  public function eliminarImgEmpresa(){
+  public function eliminarImgNoticia(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "delete from tb_imagenes_empresa WHERE (id_imagen = ".$this->id_imagen.") ";
+    $consulta = "delete from tb_imagenes_noticias WHERE (id_imagen = ".$this->id_imagen.") ";
 
     if($Conexion->query($consulta)){
         return true;
@@ -98,7 +92,7 @@ Class Noticia{
      $Conexion = new Conexion();
      $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("SELECT * FROM vista_noticias where tipo_imagen=1");
+     $resultado_consulta = $Conexion->query("select * from vista_noticias where tipo_imagen=1");
      return $resultado_consulta;
 
   }
@@ -201,8 +195,8 @@ Class Noticia{
          $Conexion = new Conexion();
          $Conexion = $Conexion->conectar();
 
-         $resultado_consulta = $Conexion->query("SELECT * from tb_imagenes_empresa
-                                                  where id_empresa=".$this->id_empresa);
+         $resultado_consulta = $Conexion->query("SELECT * from tb_imagenes_noticias
+                                                  where id_noticia=".$this->id_noticia);
          return $resultado_consulta;
 
       }

@@ -31,7 +31,7 @@ function guardar_nueva_noticia(){
 
 					 if(respuesta==1){
 						 swal("Guardado","Los datos se han guardado correctamente.","success");
-						 eliminarCamposNoticia();
+						 // eliminarCamposNoticia();
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 					 }
@@ -71,7 +71,7 @@ function modificar_noticia(){
 function eliminarNoticia(id){
 
 	swal({
-			title: "¿Eliminar Usuario?",
+			title: "¿Eliminar Noticia?",
 			text: "",
 			type: "warning",
 			showCancelButton: true,
@@ -157,7 +157,7 @@ function eliminarImagenNoticia(idFoto){
 							alert(respuesta);
 							 if(respuesta==1){
 
-								 listarImagenesNoticia();
+								 //listarImagenesNoticia();
 								 swal("Operacion exitosa!", "Imagen Eliminada", "success");
 							 }
 							 else if(respuesta==2){

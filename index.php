@@ -1,13 +1,12 @@
 <?php
 require("comun.php");
 require("./clases/Noticia.php");
-require("./clases/Categoria.php");
 
  ?>
 <!DOCTYPE html>
 <html lang="es">
      <head>
-       <title>Todo Fácil</title>
+       <title>CCLA</title>
 
        <?php
        cargarHead();
@@ -192,7 +191,7 @@ require("./clases/Categoria.php");
 
                        </div>
                     </div>';
-
+                    
               $contador++;
 
            }
@@ -223,60 +222,6 @@ require("./clases/Categoria.php");
     </ul>
 </div>
 </div>
-<h1>Noticias</h1>
-<div class="col-md-4">
-
-    <div class=" card bg-white border-info mb-3 text-black" >
-          <a href="descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'" >
-          <img class="card-img-top" style="height:200px" src="./imagenes/noticias/'.$filas['ruta_foto'].'" alt="Card image">
-          </a>
-
-          <div class="card-body">
-            <!-- <h5 class="card-title">'.$filas['nombre_empresa'].'</h5>
-            <p class="card-text">'.substr($filas['descripcion_empresa'], 0, 100).' ...</p> -->
-
-          </div>
-     </div>
-</div>
-
-
-<!-- <div id="contenedor_resultado_busqueda">
-
-
-
- <?php
-
-
-  // echo "esta buscando: ".$campo_busqueda;
-
-           // $empresa = new Empresa();
-           // $respuesta = $empresa->buscarEmpresas($campo_busqueda);
-           //
-           //    while ($filas = $respuesta->fetch_array()) {
-           //      // echo "\".$id_categoria\".";
-           //
-           //
-           //     echo '
-           //     <div class="col-md-4">
-           //
-           //         <div class=" card bg-white border-info mb-3 text-black" >
-           //               <a href="descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'" >
-           //               <img class="card-img-top" style="height:200px" src="./imagenes/empresas/'.$filas['ruta_foto'].'" alt="Card image">
-           //               </a>
-           //
-           //               <div class="card-body">
-           //                 <h5 class="card-title">'.$filas['nombre_empresa'].'</h5>
-           //                 <p class="card-text">'.substr($filas['descripcion_empresa'], 0, 100).' ...</p>
-           //
-           //               </div>
-           //          </div>
-           //     </div>';
-
-             // }
-
-?>
-</div> -->
-
 
 
        </div>
@@ -290,10 +235,6 @@ require("./clases/Categoria.php");
 	</footer>
 
 
-
-
-  <!-- <script src="./js/jquery-3.1.0.min.js"></script> -->
-  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
   <script src="./lightslider-master/src/js/lightslider.js"></script>
 
   <script>

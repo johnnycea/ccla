@@ -20,8 +20,6 @@ function comprobarSession(){
         <!-- <link rel="stylesheet" href="./css/estilosSlider.css"> -->
         <link rel="stylesheet" type="text/css" href="./css/sweet-alert.css">
         <link rel="stylesheet" type="text/css" href="./css/sweet-alert.css">
-        <!-- <link rel="stylesheet" type="text/css" href="./slick/slick.css"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"> -->
 
         <script src='./js/jquery-3.1.0.min.js'></script>
         <!-- <script src='./js/moment.min.js'></script> -->

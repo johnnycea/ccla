@@ -22,8 +22,8 @@ $listado_noticias = $Noticia->obtenerNoticias();
                           <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
                           <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['texto'].'</span></p>
                           <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$filas['fecha'].'</span></p>
-                          <a href="#" class="btn btn-outline-primary">Editar</a>
-                          <a href="javascript:eliminarEmpresa('.$filas['id_noticia'].')" class="btn btn-outline-danger">Eliminar</a>
+                          <a href="./modificar_noticia.php?id_noticia='.$filas['id_noticia'].'" class="btn btn-outline-primary">Editar</a>
+                          <a href="javascript:eliminarNoticia('.$filas['id_noticia'].')" class="btn btn-outline-danger">Eliminar</a>
                         </div>
 
                      </div>
