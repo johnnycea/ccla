@@ -20,8 +20,6 @@ function comprobarSession(){
         <!-- <link rel="stylesheet" href="./css/estilosSlider.css"> -->
         <link rel="stylesheet" type="text/css" href="./css/sweet-alert.css">
         <link rel="stylesheet" type="text/css" href="./css/sweet-alert.css">
-        <!-- <link rel="stylesheet" type="text/css" href="./slick/slick.css"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css"> -->
 
         <script src='./js/jquery-3.1.0.min.js'></script>
         <!-- <script src='./js/moment.min.js'></script> -->
@@ -239,51 +237,35 @@ function cargarMenuPrincipal(){
 }
 </style>
 
-<div class="container-fluid">
-    <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light ">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="./index.php">
-        <img src="./img/logoccla.png" width="240" height="110" class="d-inline-block align-top" alt="">
-      </a>
+<nav id="menu_principal" class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="./index.php">
+    <img src="./img/logoccla.png" width="240" height="110" class="d-inline-block align-top" alt="">
+  </a>
 
-    </nav>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
 
- </div>
-</div>
-
-
-<div id="menu_principal" class="container-fluid">
-    <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
-
-          <ul class="navbar-nav mr-sm-2  ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.php">&nbsp;&nbsp;INICIO<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;DESCUENTOS<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="eventos.php">&nbsp;&nbsp;EVENTOS<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;QUIENES SOMOS<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="contactanos.php">&nbsp;&nbsp;CONTACTANOS<span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-      </div>
-    </nav>
-
- </div>
-</div>
+      <ul class="navbar-nav mr-sm-2  ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php">&nbsp;&nbsp;INICIO<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;DESCUENTOS<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="eventos.php">&nbsp;&nbsp;EVENTOS<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;QUIENES SOMOS<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="contactanos.php">&nbsp;&nbsp;CONTACTANOS<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+  </div>
+</nav>
 
 <?php
 }
