@@ -60,11 +60,15 @@ require_once './comun.php';
                              </div>
                          </div>
 
-                                 <!-- <div class="form-group">
+                                 <div class="form-group">
                                    <br>
                                      <label for="fecha">Fecha:</label>
-                                     <input type="datetime-local" name="fecha" value="">
-                                 </div> -->
+                                     <?php
+                                          $hoy = getdate();
+
+                                          echo '<input class="form-control" type="date" name="fecha" value="'.$hoy['year'].'-'.$hoy['mon'].'-'.$hoy['mday'].'">';
+                                      ?>
+                                 </div>
 
 
                      </div>
@@ -147,14 +151,10 @@ require_once './comun.php';
   </body>
   <script type="text/javascript">
   function eliminarCamposEmpresa(){ /*AQUI LE DOY UN NOMBRE CUALQUIERA A LA FUNCION*/
-       $("#txt_nombre_empresa").val("");
-       $("#txt_descripcion_empresa").val("");
-       $("#categoria_empresa").val("");
-       $("#estado_empresa").val("");
-       $("#txt_video_empresa").val("");
-       $("#txt_coordenadas_empresa").val("");
-       $("#txt_facebook").val("");
-       $("#txt_instagram").val("");
+       $("#txt_titulo").val("");
+       $("#txt_texto").val("");
+       $("#estado").val("");
+
 
                         }
   </script>

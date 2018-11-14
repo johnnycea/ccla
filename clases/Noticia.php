@@ -18,6 +18,9 @@ Class Noticia{
   public function setTexto ($texto){
     $this->texto=$texto;
   }
+  public function setFecha ($fecha){
+    $this->fecha=$fecha;
+  }
   public function setEstado ($estado){
     $this->estado=$estado;
   }
@@ -29,7 +32,7 @@ Class Noticia{
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert into tb_noticias (titulo, texto) VALUES ('".$this->titulo."', '".$this->texto."');";
+    $consulta = "insert into tb_noticias (titulo, texto, fecha) VALUES ('".$this->titulo."', '".$this->texto."','".$this->fecha."');";
 
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");
@@ -45,10 +48,11 @@ Class Noticia{
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "tb_noticias
+    $consulta = "UPDATE tb_noticias
          SET titulo = '".$this->titulo."',
           texto = '".$this->texto."',
-          estado = '".$this->estado."'
+          estado = '".$this->estado."',
+          fecha = '".$this->fecha."'
            WHERE (id_noticia = '".$this->id_noticia."');";
     if($Conexion->query($consulta)){
         return true;
@@ -85,6 +89,37 @@ Class Noticia{
         echo $consulta;
         // return false;
     }
+
+  }
+
+  public function quitarImagenesPrincipalNoticia(){
+    $Conexion = new Conexion();
+    $Conexion = $Conexion->conectar();
+
+    $consulta = "update tb_imagenes_noticias set tipo_imagen=0 WHERE (id_noticia = ".$this->id_noticia.") ";
+    if($Conexion->query($consulta)){
+
+      return true;
+
+    }else{
+        echo $consulta;
+        // return false;
+    }
+
+  }
+
+  public function cambiarImagenPrincipalNoticia(){
+    $Conexion = new Conexion();
+    $Conexion = $Conexion->conectar();
+
+            $consulta = "update tb_imagenes_noticias set tipo_imagen=1 WHERE (id_imagen = ".$this->id_imagen.") ";
+            if($Conexion->query($consulta)){
+                 return true;
+            }else{
+                echo $consulta;
+                // return false;
+            }
+
 
   }
 

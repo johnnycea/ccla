@@ -178,6 +178,9 @@ require("./clases/Noticia.php");
                $clase="table-warning";
              }
 
+             $fecha=date_create($filas['fecha']);
+             $fecha= date_format($fecha, 'd/m/Y');
+
              echo ' <div class=" col-md-4">
                       <div class="card" class="col-md-3">
                           <img class="card-img-top" src="./imagenes/noticias/'.$filas['ruta_imagen'].'" alt="Card image">
@@ -185,7 +188,7 @@ require("./clases/Noticia.php");
                           <div class="card-body">
                             <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
                             <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['texto'].'</span></p>
-                            <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$filas['fecha'].'</span></p>
+                            <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$fecha.'</span></p>
 
                           </div>
 

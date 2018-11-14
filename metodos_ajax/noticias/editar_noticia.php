@@ -9,9 +9,10 @@ $Funciones = new Funciones();
 //SE DEFINEN VARIABLES
 //SE ASIGNAN LOS VALORES RECIBIDOS
 //SE LIMPIAN LOS DATOS RECIBIDOS DE CARACTERES EXTRAÑOS
+$id_noticia = $Funciones->limpiarNumeroEntero($_REQUEST['id_noticia']);
 $titulo = $Funciones->limpiarTexto($_REQUEST['txt_titulo']);
 $texto = $Funciones->limpiarTexto($_REQUEST['txt_texto']);
-// $fecha = $_REQUEST['fecha'];
+$fecha = $_REQUEST['fecha'];
 $estado = $Funciones->limpiarNumeroEntero($_REQUEST['estado']);
 
 
@@ -19,9 +20,10 @@ $estado = $Funciones->limpiarNumeroEntero($_REQUEST['estado']);
 
 //Creamos objeto de la clase empresa y seteamos sus valores
 $Noticia = new Noticia();
+$Noticia->setIdNoticia($id_noticia);
 $Noticia->setTitulo($titulo);
 $Noticia->setTexto($texto);
-// $Noticia->setFecha($fecha);
+$Noticia->setFecha($fecha);
 $Noticia->setEstado($estado);
 
 if($Noticia->modificarNoticia()){
@@ -33,7 +35,6 @@ if($Noticia->modificarNoticia()){
    for($c=1;$c<=$contadorFotos;$c++){
          $campo= "foto".$c;
          $principal= "principal".$c;
-         $afiche= "afiche".$c;
 
          $tipoImagenFinal = "0";
 
@@ -42,11 +43,7 @@ if($Noticia->modificarNoticia()){
          }else{
            $tipoImagenFinal = "1";
          }
-         if(isset($_REQUEST[$afiche])){
-           $tipoImagenFinal = "2";
-         }else{
-           $tipoImagenFinal = "2";
-         }
+
 
                      $numeroRandom= rand(5,1000).date("d").date("m").date("Y");
                      $nombreImagenActual=$numeroRandom.basename( $_FILES[$campo]['name']);
@@ -74,10 +71,16 @@ if($Noticia->modificarNoticia()){
                                                $conexion = $conexion->conectar();
 
 
-                                               $consulta="insert into tb_imagenes_noticias(ruta_imagen, tipo_imagen, id_noticia) values('".$nombreImagenActual."',".$idCreada.",".$tipoImagenFinal.")";
+                                               if($tipoImagenFinal==1){
+                                                 $Noticia->quitarImagenesPrincipalNoticia($id_noticia);
+                                               }
+
+
+                                               $consulta="insert into tb_imagenes_noticias(ruta_imagen, tipo_imagen, id_noticia) values('".$nombreImagenActual."',".$tipoImagenFinal.",".$id_noticia.")";
 
                                                if($conexion->query($consulta)){
                                                  // echo "agrega foto";
+
                                                }else{
                                                  echo "error al agregar foto";
                                                }

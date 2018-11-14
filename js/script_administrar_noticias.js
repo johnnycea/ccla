@@ -1,4 +1,5 @@
-listarNoticias();
+
+var id_noticia_modificando;
 
 
 function listarNoticias(){
@@ -41,7 +42,6 @@ function guardar_nueva_noticia(){
 }
 
 function modificar_noticia(){
-  alert("contador: "+$("#contadorFotos").val());
 
 	var formData = new FormData(document.getElementById("mantenedor_modificar_noticia"));
 
@@ -55,12 +55,13 @@ function modificar_noticia(){
 				processData:false,
 				success:function(resultado){
              alert(resultado);
+             // $("#prueba_error").html(resultado);
 
-						 if(respuesta==1){
+						 if(resultado==1){
 							 swal("Guardado","Los datos se han guardado correctamente.","success");
-							 listarNoticias();
+							 listarImagenesNoticia(id_noticia_modificando);
 							 eliminarCamposNoticia();
-						 }else if(respuesta==2){
+						 }else if(resultado==2){
 							 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 
 					   }
@@ -102,11 +103,13 @@ function eliminarNoticia(id){
 		}
 
 
-function listarImagenesNoticia(){
+function listarImagenesNoticia(id_noticia){
 
+
+     id_noticia_modificando= id_noticia;
 
 			$.ajax({
-				url:"./metodos_ajax/noticias/mostrar_imagenes_noticia.php?id_noticia="+id_noticia,
+				url:"./metodos_ajax/noticias/mostrar_imagenes_noticia.php?id_noticia="+id_noticia_modificando,
 				method:"POST",
 				success:function(respuesta){
 					$("#divInferiorImagenesActuales").html(respuesta);
@@ -158,7 +161,7 @@ function eliminarImagenNoticia(idFoto){
 							alert(respuesta);
 							 if(respuesta==1){
 
-								 //listarImagenesNoticia();
+								 listarImagenesNoticia(id_noticia_modificando);
 								 swal("Operacion exitosa!", "Imagen Eliminada", "success");
 							 }
 							 else if(respuesta==2){
@@ -166,6 +169,21 @@ function eliminarImagenNoticia(idFoto){
 							 }
 							 else{
 								 swal("Operacion exitosa!", "Imagen Eliminada", "success");
+							 }
+						}
+					});
+}
+
+function cambiarImagenPrincipal(idFoto,idNoticia){
+
+					$.ajax({
+						url:"./metodos_ajax/noticias/cambiar_imagen_principal.php?id_imagen="+idFoto+"&id_noticia="+idNoticia,
+						success:function(respuesta){
+							// alert(respuesta);
+							 if(respuesta==1){
+
+								 listarImagenesNoticia(id_noticia_modificando);
+								 // swal("Operacion exitosa!", "Imagen Eliminada", "success");
 							 }
 						}
 					});

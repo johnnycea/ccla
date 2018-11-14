@@ -11,7 +11,7 @@ $Funciones = new Funciones();
 //SE LIMPIAN LOS DATOS RECIBIDOS DE CARACTERES EXTRAÑOS
 $titulo = $Funciones->limpiarTexto($_REQUEST['txt_titulo']);
 $texto = $Funciones->limpiarTexto($_REQUEST['txt_texto']);
-// $fecha = $_REQUEST['fecha'];
+$fecha = $_REQUEST['fecha'];
 $estado = $Funciones->limpiarNumeroEntero($_REQUEST['estado']);
 // $imagen = $Funciones->limpiarTexto($_REQUEST['imagen']);
 
@@ -20,7 +20,7 @@ $estado = $Funciones->limpiarNumeroEntero($_REQUEST['estado']);
 $Noticia = new Noticia();
 $Noticia->setTitulo($titulo);
 $Noticia->setTexto($texto);
-// $Noticia->setFecha($fecha);
+$Noticia->setFecha($fecha);
 $Noticia->setEstado($estado);
 // $Noticia->setImagen($imagen)
 
