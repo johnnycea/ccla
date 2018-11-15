@@ -1,6 +1,6 @@
 <?php
 require_once 'comun.php';
-require_once './clases/Noticia.php';
+require_once './clases/Directorio.php';
 
 // require_once './clases/Usuario.php';
 // $comprobar = new Usuario();
@@ -12,8 +12,11 @@ require_once './clases/Noticia.php';
 <html lang="en">
 <head>
 
+<style>
 
-   <title>Administracion de noticia</title>
+
+</style>
+   <title>Administracion de directorio</title>
    <?php cargarHead(); ?>
 </head>
 <body>
@@ -44,12 +47,12 @@ require_once './clases/Noticia.php';
           <div  style="" class=" card col-12">
             <div class="container">
               <br>
-                 <a href="./nueva_noticia.php" class="btn btn-success" >Crear nueva noticia</a>
+                 <a href="./nuevo_directorio.php" class="btn btn-success" >Crear trabajador</a>
             </div>
             <div class="container">
               <br>
 
-              <div class="row" id='contenedor_listado_noticias'></div>
+              <div class="row" id='contenedor_listado_directorio'></div>
 
             </div>
 
@@ -61,9 +64,10 @@ require_once './clases/Noticia.php';
 
 </div>
 
-  <script src="./js/script_administrar_noticias.js"></script>
+<script src="./js/script_administrar_directorio.js"></script>
+
 <script>
-listarNoticias();
+ listarDirectorio();
 </script>
 
 

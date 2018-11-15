@@ -1,26 +1,25 @@
+var id_directorio_modificando;
 
-var id_noticia_modificando;
-listarNoticias();
-
-function listarNoticias(){
+function listarDirectorio(){
 
 
 		$.ajax({
-			url:"./metodos_ajax/noticias/mostrar_noticias.php",
+			url:"./metodos_ajax/directorio/mostrar_directorio.php",
 			method:"POST",
 			success:function(respuesta){
-				 $("#contenedor_listado_noticias").html(respuesta);
+				// alert(respuesta);
+				 $("#contenedor_listado_directorio").html(respuesta);
 			}
 		});
 }
 
 
-function guardar_nueva_noticia(){
+function guardar_nuevo_directorio(){
 
-	var formData = new FormData(document.getElementById("mantenedor_ingresar_noticia"));
+	var formData = new FormData(document.getElementById("mantenedor_ingresar_directorio"));
 
 			$.ajax({
-				url:"./metodos_ajax/noticias/crear_noticia.php",
+				url:"./metodos_ajax/directorio/crear_directorio.php",
 				dataType: "html",
 				type:'post',
 				data: formData,
@@ -32,7 +31,7 @@ function guardar_nueva_noticia(){
 
 					 if(respuesta==1){
 						 swal("Guardado","Los datos se han guardado correctamente.","success");
-						 // eliminarCamposNoticia();
+						 // eliminarCamposDirectorio();
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 					 }
@@ -41,12 +40,12 @@ function guardar_nueva_noticia(){
 
 }
 
-function modificar_noticia(){
+function modificar_directorio(){
 
-	var formData = new FormData(document.getElementById("mantenedor_modificar_noticia"));
+	var formData = new FormData(document.getElementById("mantenedor_modificar_directorio"));
 
 			$.ajax({
-				url:"./metodos_ajax/noticias/editar_noticia.php",
+				url:"./metodos_ajax/directorio/editar_directorio.php",
 				dataType: "html",
 				type:'post',
 				data: formData,
@@ -59,8 +58,8 @@ function modificar_noticia(){
 
 						 if(resultado==1){
 							 swal("Guardado","Los datos se han guardado correctamente.","success");
-							 listarImagenesNoticia(id_noticia_modificando);
-							 eliminarCamposNoticia();
+							 // listarImagenesNoticia(id_noticia_modificando);
+							 eliminarCamposDirectorio();
 						 }else if(resultado==2){
 							 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
 

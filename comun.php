@@ -174,6 +174,13 @@ function cargarMenuConfiguraciones(){
   }
   echo'<hr>';
 
+  if($url=="administracion_directorio.php"){
+      echo '<a href="./administracion_directorio.php" class="active btn btn-info col-12">Directorio </a>';
+  }else{
+      echo '<a href="./administracion_directorio.php" class="btn btn-info col-12">Directorio</a>';
+  }
+  echo'<hr>';
+
   if($url=="administrar_descuentos.php"){
       echo '<a href="./administracion_descuentos.php" class="active btn btn-info col-12">Descuentos </a>';
   }else{
