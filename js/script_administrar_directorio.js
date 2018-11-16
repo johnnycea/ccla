@@ -54,7 +54,7 @@ function modificar_directorio(){
 				processData:false,
 				success:function(resultado){
              alert(resultado);
-             // $("#prueba_error").html(resultado);
+             $("#prueba_error").html(resultado);
 
 						 if(resultado==1){
 							 swal("Guardado","Los datos se han guardado correctamente.","success");

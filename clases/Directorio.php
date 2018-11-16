@@ -89,7 +89,7 @@ Class Directorio{
      $Conexion = new Conexion();
      $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("SELECT * FROM tb_directorio;");
+     $resultado_consulta = $Conexion->query("select * from tb_directorio;");
      return $resultado_consulta;
 
   }
