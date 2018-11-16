@@ -5,9 +5,9 @@ require_once './clases/Funciones.php';
 require_once './clases/Directorio.php';
 require_once './comun.php';
 
-// require_once './clases/Usuario.php';
-// $comprobar = new Usuario();
-// $comprobar->verificarSesion();
+require_once './clases/Usuario.php';
+$comprobar = new Usuario();
+$comprobar->verificarSesion();
 
 ?>
 

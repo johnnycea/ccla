@@ -264,7 +264,13 @@ class Usuario{
           $claveRecibida=$this->clave;
           // echo "c bd: ".$claveBD."  c recibida: ".crypt($this->clave, $claveRecibida);
 
-          return true;
+          //ELIMINAR ESTA AL REPARAR EL INICIO DE SESION
+          session_start();
+          $_SESSION['run']=$this->run;
+          $_SESSION['nombre']=$columnas['nombre'];
+          return true; //ELIMINAR ESTA AL REPARAR EL INICIO DE SESION
+
+
             // if(crypt($this->clave, $claveBD) == $claveBD){
             //
             //         session_start();
@@ -277,9 +283,6 @@ class Usuario{
             //   }
 
       }else{
-            // // ABRO NUEVA CONEXION E INGRESO EL ESTADO DEL INICIO DE SESION
-            // $this->registrarLogIngreso($this->run,"usuario_incorrecto");
-
             return false;
       }
   }
@@ -292,6 +295,7 @@ class Usuario{
         header("location: ./administrar.php");
     }
   }
+
   public function cerrarSesion($rutaInicial){
       session_start();
 

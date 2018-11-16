@@ -60,16 +60,17 @@ function modificar_directorio(){
 				processData:false,
 				success:function(resultado){
              // alert(resultado);
-             // $("#prueba_error").html(resultado);
 
 						 if(resultado==1){
 							 swal("Guardado","Los datos se han guardado correctamente.","success");
-							 // listarImagenesNoticia(id_noticia_modificando);
-							 eliminarCamposDirectorio();
-						 }else if(resultado==2){
+							 // setTimeout(function(){
+								//  window.location ="./administracion_directorio.php";}
+							 // ,3000);
+						 }else if(respuesta==2){
 							 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
-
-					   }
+						 }else if(respuesta==3){
+							 swal("Ocurrió un error","Error al subir la imagen.","error");
+						 }
 				}
 			});
 }

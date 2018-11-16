@@ -49,8 +49,9 @@ Class Directorio{
     $consulta = "update tb_directorio
          SET nombre = '".$this->nombre."',
           cargo = '".$this->cargo."',
-          correo = '".$this->correo."'
-           WHERE (id_miembro = '".$this->id_miembro."');";
+          correo = '".$this->correo."',
+          ruta_imagen = '".$this->imagen."'
+          WHERE (id_miembro = '".$this->id_miembro."');";
     if($Conexion->query($consulta)){
         return true;
     }else{

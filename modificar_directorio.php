@@ -65,7 +65,7 @@ echo '<script> var id_miembro = '.$id_miembro.'; </script>';
    </div>
               <form action="javascript:modificar_directorio()" id="mantenedor_modificar_directorio" name="mantenedor_modificar_directorio" method="POST" enctype="multipart/form-data">
 
-                        <input type="hidden" name="id_miembro" id="id_miembro" value="<?php echo $filas['id_miembro'];?>">
+                        <input type="hidden" name="id_miembro" id="id_miembro" value="<?php echo $id_miembro; ?>">
 
                       <div class="row">
                         <div class="col-12 col-md-4">
@@ -88,6 +88,13 @@ echo '<script> var id_miembro = '.$id_miembro.'; </script>';
                                     <label for="descripcion">Correo:</label>
                                     <input class="form-control" value="<?php echo $filas['correo'];?>" title="Debe ingresar correo" required id="txt_correo" name="txt_correo" placeholder="Correo electronico" type="text">
                                 </div>
+
+                                <div class="form-group">
+                                  <br>
+                                    <label for="descripcion">Imagen:</label>
+                                    <input type="file" class="form-control" title="Debe ingresar titulo" required id="txt_imagen" name="txt_imagen" placeholder="Imagen">
+                                </div>
+
                             </div>
 
 
