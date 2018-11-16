@@ -43,7 +43,7 @@ $nombreImagenActual= str_replace("Ñ","N",$nombreImagenActual);
               }
 
           }else{
-            echo "no se subio";
+            echo "3";
           }
 
 

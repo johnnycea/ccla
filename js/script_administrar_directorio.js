@@ -31,9 +31,15 @@ function guardar_nuevo_directorio(){
 
 					 if(respuesta==1){
 						 swal("Guardado","Los datos se han guardado correctamente.","success");
-						 // eliminarCamposDirectorio();
+
+						 setTimeout(function(){
+							 window.location ="./administracion_directorio.php";}
+						 ,3000);
+
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");
+					 }else if(respuesta==3){
+						 swal("Ocurrió un error","Error al subir la imagen.","error");
 					 }
 				}
 			});
