@@ -8,6 +8,7 @@ Class Directorio{
   private $nombre;
   private $cargo;
   private $correo;
+  private $imagen;
 
   public function setIdMiembro ($id_miembro){
     $this->id_miembro = $id_miembro;
@@ -21,12 +22,15 @@ Class Directorio{
   public function setCorreo ($correo){
     $this->correo = $correo;
   }
+  public function setImagen ($imagen){
+    $this->imagen = $imagen;
+  }
 
   public function crearDirectorio(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert into tb_directorio (nombre, cargo, correo) VALUES ('".$this->nombre."', '".$this->cargo."','".$this->correo."');";
+    $consulta = "insert into tb_directorio (nombre, cargo, correo,ruta_imagen) VALUES ('".$this->nombre."', '".$this->cargo."','".$this->correo."','".$this->imagen."');";
 
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");

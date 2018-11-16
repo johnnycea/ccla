@@ -40,7 +40,7 @@ require_once './comun.php';
   </div>
 <div class="container">
                      <!-- <form> -->
-              <form action="javascript:guardar_nuevo_directorio()" id="mantenedor_ingresar_directorio" name="mantenedor_ingresar_directorio" method="POST">
+              <form action="javascript:guardar_nuevo_directorio()" id="mantenedor_ingresar_directorio" name="mantenedor_ingresar_directorio" method="POST" enctype="multipart/form-data">
                   <fieldset>
                       <div class="row">
 
@@ -63,6 +63,12 @@ require_once './comun.php';
                                <br>
                                  <label for="descripcion">Correo:</label>
                                  <input class="form-control" title="Debe ingresar titulo" required id="txt_correo" name="txt_correo" placeholder="Correo electronico" type="text">
+                             </div>
+
+                             <div class="form-group">
+                               <br>
+                                 <label for="descripcion">Imagen:</label>
+                                 <input type="file" class="form-control" title="Debe ingresar titulo" required id="txt_imagen" name="txt_imagen" placeholder="Imagen">
                              </div>
                          </div>
 
