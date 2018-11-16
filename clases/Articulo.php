@@ -4,16 +4,15 @@ require_once 'Conexion.php';
 
 Class Directorio{
 
-  private $id_miembro;
-  private $nombre;
-  private $cargo;
-  private $correo;
+  private $id_articulo;
+  private $titulo;
+  private $texto;
 
-  public function setIdMiembro ($id_miembro){
-    $this->id_miembro = $id_miembro;
+  public function setIdArticulo ($id_articulo){
+    $this->id_articulo = $id_articulo;
   }
-  public function setNombre ($nombre){
-    $this->nombre = $nombre;
+  public function setTitulo ($titulo){
+    $this->titulo = $titulo;
   }
   public function setCargo ($cargo){
     $this->cargo = $cargo;

@@ -9,7 +9,7 @@ $Funciones = new Funciones();
 //SE DEFINEN VARIABLES
 //SE ASIGNAN LOS VALORES RECIBIDOS
 //SE LIMPIAN LOS DATOS RECIBIDOS DE CARACTERES EXTRAÑOS
-$id_miembro = $Funciones->limpiarNumeroEntero($_REQUEST['id_miembro']);
+$id_miembro = $_REQUEST['id_miembro'];
 $nombre = $Funciones->limpiarTexto($_REQUEST['txt_nombre']);
 $cargo = $Funciones->limpiarTexto($_REQUEST['txt_cargo']);
 $correo = $Funciones->limpiarTexto($_REQUEST['txt_correo']);

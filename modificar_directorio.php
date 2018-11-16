@@ -32,15 +32,12 @@ $comprobar->verificarSesion();
 
 // echo "hola el id es: ".$_REQUEST['id_miembro'];
 
- $id_miembro = $_REQUEST['id_miembro'];
+$id_miembro = $_REQUEST['id_miembro'];
 echo '<script> var id_miembro = '.$id_miembro.'; </script>';
-
-$id_noticia = $_REQUEST['id_noticia'];
-echo '<script> var id_noticia = '.$id_noticia.'; </script>';
 
  $empleado_creado = new Directorio();
  $empleado_creado->setIdMiembro($id_miembro);
- $respuesta = $empleado_creado->obtenerDirectorio();  //" where id_miembro = ".$id_miembro.""
+ $respuesta = $empleado_creado->obtenerDirectorio("where id_miembro = ".$id_miembro."");  //" where id_miembro = ".$id_miembro.""
 
   $filas = $respuesta->fetch_array();
 

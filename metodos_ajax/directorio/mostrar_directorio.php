@@ -23,7 +23,7 @@ $listar_directorio = $Directorio->obtenerDirectorio();
                           <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['nombre'].'</span></h4>
                           <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['cargo'].'</span></p>
                           <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$filas['correo'].'</span></p>
-                          <a href="./modificar_directorio.php?id_directorio='.$filas['id_miembro'].'" class="btn btn-outline-primary">Editar</a>
+                          <a href="./modificar_directorio.php?id_miembro='.$filas['id_miembro'].'" class="btn btn-outline-primary">Editar</a>
                           <a href="javascript:eliminarDirectorio('.$filas['id_miembro'].')" class="btn btn-outline-danger">Eliminar</a>
                         </div>
 

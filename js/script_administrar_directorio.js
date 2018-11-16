@@ -27,7 +27,7 @@ function guardar_nuevo_directorio(){
 				contentType: false,
 				processData:false,
 				success:function(respuesta){
-					 alert(respuesta);
+					 // alert(respuesta);
 
 					 if(respuesta==1){
 						 swal("Guardado","Los datos se han guardado correctamente.","success");
@@ -53,8 +53,8 @@ function modificar_directorio(){
 				contentType: false,
 				processData:false,
 				success:function(resultado){
-             alert(resultado);
-             $("#prueba_error").html(resultado);
+             // alert(resultado);
+             // $("#prueba_error").html(resultado);
 
 						 if(resultado==1){
 							 swal("Guardado","Los datos se han guardado correctamente.","success");
@@ -68,10 +68,10 @@ function modificar_directorio(){
 			});
 }
 
-function eliminarNoticia(id){
+function eliminarDirectorio(id){
 
 	swal({
-			title: "¿Eliminar Noticia?",
+			title: "¿Eliminar Empleado?",
 			text: "",
 			type: "warning",
 			showCancelButton: true,
@@ -83,12 +83,12 @@ function eliminarNoticia(id){
 			function(isConfirm){
 					if (isConfirm) {
 			$.ajax({
-				url:"./metodos_ajax/noticias/eliminar_noticia.php?id_noticia="+id,
+				url:"./metodos_ajax/directorio/eliminar_directorio.php?id_miembro="+id,
 				method:"POST",
 				success:function(respuesta){
-					 // alert(respuesta);
+					  // alert(respuesta);
 					 if(respuesta==1){
-						 listarNoticias();
+						 listarDirectorio();
 						 swal("Eliminado correctamente","Los datos se han guardado correctamente.","success");
 					 }else if(respuesta==2){
 						 swal("Ocurrió un error","Recargue la página e intente nuevamente.","error");

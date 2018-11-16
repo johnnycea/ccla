@@ -66,7 +66,7 @@ echo '<script> var id_noticia = '.$id_noticia.'; </script>';
    </div>
               <form action="javascript:modificar_noticia()" id="mantenedor_modificar_noticia" name="mantenedor_modificar_noticia" method="POST" enctype="multipart/form-data">
 
-                        <input type="hidden" name="id_noticia" value="<?php echo $filas['id_noticia'];?>">
+                <input type="hidden" name="id_noticia" value="<?php echo $filas['id_noticia'];?>">
 
                       <div class="row">
 
