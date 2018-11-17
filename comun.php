@@ -246,12 +246,25 @@ function cargarMenuPrincipal(){
 
 <div class="container-fluid">
     <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light ">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
       <a class="navbar-brand" href="./index.php">
-        <img src="./img/logoccla.png" width="240" height="110" class="d-inline-block align-top" alt="">
+        <img src="./img/logoccla.png" width="240" height="100" class="d-inline-block align-top" alt="">
       </a>
+
+
+      <ul class="navbar-nav mr-sm-1  ml-auto">
+
+        <li class="nav-item active">
+          <img src="./img/footer1.png" width="80" height="80" class="d-inline-block align-top" alt="">
+        </li>
+        <li class="nav-item active">
+          <img src="./img/footer2.png" width="180" height="80" class="d-inline-block align-top" alt="">
+        </li>
+        <li class="nav-item active">
+          <img src="./img/footer3.png" width="150" height="80" class="d-inline-block align-top" alt="">
+        </li>
+
+      </ul>
 
     </nav>
 
@@ -269,19 +282,25 @@ function cargarMenuPrincipal(){
 
           <ul class="navbar-nav mr-sm-1  ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">&nbsp;&nbsp;INICIO<span class="sr-only"></span></a>
+              <a class="nav-link" href="index.php">&nbsp;&nbsp;Inicio<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;DESCUENTOS<span class="sr-only"></span></a>
+              <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;¿Quienes somos?<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="eventos.php">&nbsp;&nbsp;EVENTOS<span class="sr-only"></span></a>
+              <a class="nav-link" href="Descuentos.php">&nbsp;&nbsp;Ser socio<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;QUIENES SOMOS<span class="sr-only"></span></a>
+              <a class="nav-link" href="eventos.php">&nbsp;&nbsp;Servicios<span class="sr-only"></span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="contactanos.php">&nbsp;&nbsp;CONTACTANOS<span class="sr-only"></span></a>
+              <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;Bio Bio Crece<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="quienes_somos.php">&nbsp;&nbsp;Biblioteca<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="contactanos.php">&nbsp;&nbsp;Contactanos<span class="sr-only"></span></a>
             </li>
           </ul>
       </div>
