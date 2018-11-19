@@ -2,11 +2,12 @@
 
 require_once 'Conexion.php';
 
-Class Directorio{
+Class Articulo{
 
   private $id_articulo;
   private $titulo;
   private $texto;
+  private $imagen;
 
   public function setIdArticulo ($id_articulo){
     $this->id_articulo = $id_articulo;
@@ -14,18 +15,18 @@ Class Directorio{
   public function setTitulo ($titulo){
     $this->titulo = $titulo;
   }
-  public function setCargo ($cargo){
-    $this->cargo = $cargo;
+  public function setTexto ($texto){
+    $this->texto = $texto;
   }
-  public function setCorreo ($correo){
-    $this->correo = $correo;
+  public function setImagen ($imagen){
+    $this->imagen = $imagen;
   }
 
-  public function crearDirectorio(){
+  public function crearArticulo(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert into tb_directorio (nombre, cargo, correo) VALUES ('".$this->nombre."', '".$this->cargo."','".$this->correo."');";
+    $consulta = "insert into tb_articulos (titulo, texto, ruta_imagen) VALUES ('".$this->titulo."', '".$this->texto."', '".$this->imagen."');";
 
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");
@@ -37,15 +38,14 @@ Class Directorio{
     }
   }
 
-  public function modificarDirectorio(){
+  public function modificarArticulo(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "update tb_directorio
-         SET nombre = '".$this->nombre."',
-          cargo = '".$this->cargo."',
-          correo = '".$this->correo."'
-           WHERE (id_miembro = '".$this->id_miembro."');";
+    $consulta = "update tb_articulos
+         SET titulo = '".$this->titulo."',
+          texto = '".$this->texto."'
+           WHERE (id_articulo = '".$this->id_articulo."');";
     if($Conexion->query($consulta)){
         return true;
     }else{
@@ -54,11 +54,11 @@ Class Directorio{
     }
   }
 
-  public function eliminarDirectorio(){
+  public function eliminarArticulo(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "DELETE FROM tb_directorio WHERE (id_miembro = ".$this->id_miembro.") ";
+    $consulta = "DELETE FROM tb_articulos WHERE (id_articulo = ".$this->id_articulo.") ";
 
     if($Conexion->query($consulta)){
         return true;
@@ -69,7 +69,7 @@ Class Directorio{
 
   }
 
-  public function eliminarImgNoticia(){
+  public function eliminarImgArticulo(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
@@ -84,11 +84,11 @@ Class Directorio{
 
   }
 
-  public function obtenerDirectorio(){
+  public function obtenerArticulo(){
      $Conexion = new Conexion();
      $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("select * from tb_directorio;");
+     $resultado_consulta = $Conexion->query("select * from tb_articulos;");
      return $resultado_consulta;
 
   }

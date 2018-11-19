@@ -181,18 +181,18 @@ function cargarMenuConfiguraciones(){
   }
   echo'<hr>';
 
-  if($url=="administrar_descuentos.php"){
-      echo '<a href="./administracion_descuentos.php" class="active btn btn-info col-12">Descuentos </a>';
+  if($url=="administracion_articulo.php"){
+      echo '<a href="./administracion_articulo.php" class="active btn btn-info col-12">Articulo </a>';
   }else{
-      echo '<a href="./administracion_descuentos.php" class="btn btn-info col-12">Descuentos </a>';
+      echo '<a href="./administracion_articulo.php" class="btn btn-info col-12">Articulo </a>';
   }
 
   echo'<hr>';
 
-  if($url=="administrar_eventos.php"){
-      echo '<a href="./administracion_eventos.php" class="active btn btn-info col-12">Eventos </a>';
+  if($url=="administracion_evento.php"){
+      echo '<a href="./administracion_evento.php" class="active btn btn-info col-12">Eventos </a>';
   }else{
-      echo '<a href="./administracion_eventos.php" class="btn btn-info col-12">Eventos </a>';
+      echo '<a href="./administracion_evento.php" class="btn btn-info col-12">Eventos </a>';
   }
 
   echo'<hr>';
