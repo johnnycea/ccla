@@ -98,10 +98,15 @@ require("./clases/Noticia.php");
 
    <div class="col-md-7">
      <div class="row">
+
+       <div class="col-lg-12 text-center">
+           <h1>Últimas Noticias</h1>
+           <!-- <p class="lead">Completa con rutas de archivo predefinidas que no tendrás que cambiar!</p> -->
+       </div>
           <?php
 
           $Noticia = new Noticia();
-          $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1)");
+          $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1) order by id_noticia desc limit 6");
 
                     $contador = 1;
                     while($filas = $listado_noticias->fetch_array()){
@@ -205,8 +210,8 @@ require("./clases/Noticia.php");
                            {
                             id: '1',
                             title: 'hola',
-                            start: '2018-04-02 13:00',
-                            end: '2018-04-02 14:00',
+                            start: '2018-11-20 13:00',
+                            end: '2018-11-20 14:00',
                           },
                       ],
 
@@ -214,7 +219,7 @@ require("./clases/Noticia.php");
             });
 
       $(document).ready(function(){
-      actualizarEventos(false);
+      actualizarEventos();
       });
       </script>
 
@@ -229,6 +234,7 @@ require("./clases/Noticia.php");
 
 </div>
   <script src='./js/fullcalendar.min.js'></script>
+  <script src='./js/scripts_index.js'></script>
   <script type="text/javascript" src="./inmersive-slider/jquery.immersive-slider.js"></script>
 
   <footer>
