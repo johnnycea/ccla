@@ -13,21 +13,15 @@ function comprobarSession(){
         <meta http-equiv="Content-Type" content="text/html"; charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href='./css/fullcalendar.min.css' rel='stylesheet' />
-        <link href='./css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/estilos.css">
-        <!-- <link rel="stylesheet" href="./css/estilosSlider.css"> -->
-        <link rel="stylesheet" type="text/css" href="./css/sweet-alert.css">
         <link rel="stylesheet" type="text/css" href="./css/sweet-alert.css">
 
         <script src='./js/jquery-3.1.0.min.js'></script>
-        <!-- <script src='./js/moment.min.js'></script> -->
         <script src='./js/bootstrap.min.js'></script>
-
-        <!-- <script src="./js/validaciones.js"></script> -->
         <script src="./js/fontawesome-all.min.js"></script>
         <script src="./js/sweetalert.min.js"></script>
+        <script src='./js/moment.min.js'></script>
 
 
         </script>
