@@ -97,33 +97,34 @@ require("./clases/Noticia.php");
 <div class="row">
 
    <div class="col-md-7">
+     <div class="row">
+          <?php
 
-      <?php
+          $Noticia = new Noticia();
+          $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1)");
 
-      $Noticia = new Noticia();
-      $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1)");
+                    $contador = 1;
+                    while($filas = $listado_noticias->fetch_array()){
 
-                $contador = 1;
-                while($filas = $listado_noticias->fetch_array()){
+                     $fecha=date_create($filas['fecha']);
+                     $fecha= date_format($fecha, 'd/m/Y');
 
-                 $fecha=date_create($filas['fecha']);
-                 $fecha= date_format($fecha, 'd/m/Y');
+                     echo ' <div class=" col-md-4">
+                              <div class="card" class="col-md-3">
+                                  <img class="card-img-top" src="./imagenes/noticias/'.$filas['ruta_imagen'].'" alt="Card image">
 
-                 echo ' <div class=" col-md-4">
-                          <div class="card" class="col-md-3">
-                              <img class="card-img-top" src="./imagenes/noticias/'.$filas['ruta_imagen'].'" alt="Card image">
+                                  <div class="card-body">
+                                    <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
+                                    <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.substr($filas['texto'],0,100).'...</span></p>
+                                    <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$fecha.'</span></p>
+                                  </div>
 
-                              <div class="card-body">
-                                <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
-                                <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['texto'].'</span></p>
-                                <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$fecha.'</span></p>
-                              </div>
-
-                           </div>
-                        </div>';
-                  $contador++;
-               }
-      ?>
+                               </div>
+                            </div>';
+                      $contador++;
+                   }
+          ?>
+       </div>
       </div>
 
       <script>
@@ -217,15 +218,19 @@ require("./clases/Noticia.php");
       });
       </script>
 
-
       <div class="col-md-5">
-               <div id='calendar' style="" class=" card col-12"></div>
+          <div class="col-lg-12 text-center">
+              <h1>Eventos próximos</h1>
+              <!-- <p class="lead">Completa con rutas de archivo predefinidas que no tendrás que cambiar!</p> -->
+              <div id='calendar' style="" class=" card col-12"></div>
+              </div>
+          </div>
       </div>
 
 </div>
   <script src='./js/fullcalendar.min.js'></script>
   <script type="text/javascript" src="./inmersive-slider/jquery.immersive-slider.js"></script>
-  
+
   <footer>
     <?php sub_footer(); ?>
 	</footer>
