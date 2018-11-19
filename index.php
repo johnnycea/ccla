@@ -13,45 +13,109 @@ require("./clases/Noticia.php");
 
         ?>
         <!-- //slider principal -->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
         <script type="text/javascript" src="./inmersive-slider/jquery.immersive-slider.js"></script>
+        <link rel="stylesheet" href='./css/fullcalendar.min.css' />
+        <link rel="stylesheet" href='./css/fullcalendar.print.min.css' media='print' />
         <link href='./inmersive-slider/immersive-slider.css' rel='stylesheet' type='text/css'>
-        <!-- <link href='./css/estilos-slider-inmersive.css' rel='stylesheet' type='text/css'> -->
+
+        <script src='./js/fullcalendar.min.js'></script>
+
+        <script>
+          $(document).ready(function() {
+            var eventos_agendados=0;
+
+                 var initialLocaleCode = 'es';
+
+                 $('#calendar').fullCalendar({
+                   header: {
+                     // left: 'prev,next today',
+                     // center: 'title',
+                     // right: 'agendaDay,agendaWeek,month'
+                   },
+                     editable: false,
+                     eventLimit: true, // allow "more" link when too many events
+                     selectable: true,
+                     selectHelper: true,
+                   dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles',
+                            'Jueves', 'Viernes', 'Sabado'],
+                   dayNamesShort:['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                   monthNames:['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                   monthNamesShort:['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                               'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                   buttonText: {
+                             today:    'Hoy',
+                             month:    'Mes',
+                             week:     'Semana',
+                             day:      'Dia',
+                             list:     'Lista'
+                         },
+                   allDayText:"Todo el dia",
+                   hiddenDays: [0],
+                   minTime:"08:00:00",
+                   maxTime:"22:00:00",
+                   firstDay:1,
+                   columnFormat:'ddd D',
+                   titleFormat: 'MMMM YYYY',
+                   defaultView:'month',
+
+                            select: function(start, end){
+
+                             $("#formulario_actividad")[0].reset();
+                             $("#txt_id_actividad").val("");
+                             $("#modal_actividad #txt_inicio").val(moment(start).format('DD-MM-YYYY HH:mm'));
+                             $("#modal_actividad #txt_fin").val(moment(end).format('DD-MM-YYYY HH:mm'));
+                             $("#btn_eliminar_actividad").addClass("d-none");
+
+                             $("#modal_actividad").modal('show');
+
+                           },
+                           eventRender: function(event, element){
+                             element.bind('click', function(){
+                               $('#modal_actividad #txt_id_actividad').val(event.id);
+                               $('#modal_actividad #txt_descripcion_actividad').val(event.title);
+                               $('#modal_actividad #txt_lugar_actividad').val(event.lugar);
+                               $("#btn_eliminar_actividad").removeClass("d-none");
+
+                               $("#modal_actividad #txt_inicio").val(event.start.format('DD-MM-YYYY HH:mm'));
+                               $("#modal_actividad #txt_fin").val(event.end.format('DD-MM-YYYY HH:mm'));
+
+                               $("#modal_informacion_actividad").modal('show');
+                             });
+                           },
+                           eventDrop: function(event, delta, revertFunc) { // si changement de position
+
+                             modificarFechaActividad(event.id,event.start.format(),event.end.format());
+
+                           },
+                           eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
+
+                             modificarFechaActividad(event.id,event.start.format(),event.end.format());
+
+                           },
 
 
-        <link rel="stylesheet"  href="./lightslider-master/src/css/lightslider.css"/>
+                   events:[
+                             {
+                              id: '1',
+                              title: 'hola',
+                              start: '2018-04-02 13:00',
+                              end: '2018-04-02 14:00',
+                            },
+                        ],
 
-        <style>
-          ul{
-          list-style: none outside none;
-            padding-left: 0;
-                margin: 0;
-        }
-           .item{
-                margin-bottom: 60px;
-            }
-        .content-slider li{
-            background-color: #ed3020;
-            text-align: center;
-            color: #FFF;
-        }
-        .content-slider h3 {
-            margin: 0;
-            padding: 70px 0;
-        }
-        .demo{
-          width: 800px;
-        }
-        </style>
+                 });
+              });
 
-
-        <link href="./css/camera.css" rel="stylesheet" type="text/css"/>
+        $(document).ready(function(){
+        actualizarEventos(false);
+        });
+        </script>
 
 
 
-    </head>
-    <body>
-
+  </head>
+<body>
 
   <div class="container-fluid">
 <?php
@@ -88,8 +152,6 @@ require("./clases/Noticia.php");
 
            ?>
 
-
-
            <a href="#" class="is-prev">&laquo;</a>
            <a href="#" class="is-next">&raquo;</a>
 
@@ -112,6 +174,7 @@ require("./clases/Noticia.php");
 
    </script>
  </div>
+
  <script>
 
    var _gaq=[['_setAccount','UA-11278966-1'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
@@ -127,169 +190,48 @@ require("./clases/Noticia.php");
 <br>
 
 <div class="row">
-  <?php
 
-  $Noticia = new Noticia();
-  $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1)");
+   <div class="col-md-7">
 
-
-            $contador = 1;
-            while($filas = $listado_noticias->fetch_array()){
-
-             $clase="";
-             if($filas['estado']==2){
-               $clase="table-warning";
-             }
-
-             $fecha=date_create($filas['fecha']);
-             $fecha= date_format($fecha, 'd/m/Y');
-
-             echo ' <div class=" col-md-4">
-                      <div class="card" class="col-md-3">
-                          <img class="card-img-top" src="./imagenes/noticias/'.$filas['ruta_imagen'].'" alt="Card image">
-
-                          <div class="card-body">
-                            <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
-                            <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['texto'].'</span></p>
-                            <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$fecha.'</span></p>
-
-                          </div>
-
-                       </div>
-                    </div>';
-
-              $contador++;
-
-           }
-  ?>
-</div>
-
-<br>
-
-<!-- BANNER EMPRESAS -->
-<div class="container-fluid">
-<div class="item">
-    <ul id="content-slider" class="content-slider">
       <?php
-          // $Empresa = new Empresa(); //instancio lo de la clase categoria
-          // $respuesta = $Empresa->obtenerEmpresasActivas();
-          //
-          //   while ($filas = $respuesta->fetch_array()) {
-          //     echo '
-          //           <div>
-          //             <a href="./descripcion_empresa.php?idEmpresa='.$filas['id_empresa'].'">
-          //               <img class="card-img-top" style="height:250px" src="./imagenes/empresas/'.$filas['ruta_foto'].'" /></a>
-          //             </a>
-          //           </div>
-          //         ';
-          //  }
-       ?>
 
-    </ul>
-</div>
-</div>
+      $Noticia = new Noticia();
+      $listado_noticias = $Noticia->obtenerNoticias("where tipo_imagen=1 and (estado = 1)");
 
+                $contador = 1;
+                while($filas = $listado_noticias->fetch_array()){
 
-       </div>
+                 $fecha=date_create($filas['fecha']);
+                 $fecha= date_format($fecha, 'd/m/Y');
 
+                 echo ' <div class=" col-md-4">
+                          <div class="card" class="col-md-3">
+                              <img class="card-img-top" src="./imagenes/noticias/'.$filas['ruta_imagen'].'" alt="Card image">
 
-    <footer>
+                              <div class="card-body">
+                                <h4 class="card-title"><span id="txt_nombre_'.$contador.'" >'.$filas['titulo'].'</span></h4>
+                                <p class="card-text"><span id="txt_nombre_'.$contador.'" >'.$filas['texto'].'</span></p>
+                                <p class="card-text"><span  id="txt_nombre_'.$contador.'" >'.$fecha.'</span></p>
+                              </div>
 
-    <?php
-      sub_footer();
+                           </div>
+                        </div>';
+                  $contador++;
+               }
       ?>
+      </div>
+
+      <div class="col-md-5">
+               <div id='calendar' style="" class=" card col-12"></div>
+      </div>
+
+</div>
+
+
+  <footer>
+    <?php sub_footer(); ?>
 	</footer>
 
 
-  <script src="./lightslider-master/src/js/lightslider.js"></script>
-
-  <script>
-
-  var ancho_pantalla = screen.width;
-
-  if(ancho_pantalla < 800){
-     $(document).ready(function() {
-           $("#content-slider").lightSlider({
-                loop:true,
-                keyPress:true,
-                auto:true,
-                speed:500,
-                item:1,
-                thumbItem:9,
-                slideMargin: 1,
-            });
-
-    });
-  }else{
-    $(document).ready(function() {
-
-        $("#content-slider").lightSlider({
-                  loop:true,
-                  keyPress:true,
-                  auto:true,
-                  speed:600,
-                  item:4,
-                  thumbItem:9,
-                  slideMargin: 2,
-              });
-    });
-  }
-  </script>
-
-  <script src="./js/easing.min.js" type="text/javascript"></script>
-  <script src="./js/camera.min.js" type="text/javascript"></script>
-  <!-- Custom JS --->
-  <script src="./js/plugins.js"></script>
-
-
-  <script>
-
-  var ancho_pantalla = screen.width;
-  // alert(ancho_pantalla);
-  $(function () {
-
-  if(ancho_pantalla < 800){
-    $('.camera_wrap').camera({
-      playPause: false,
-      navigation: false,
-      navigationHover: true,
-      hover: false,
-      loader: 'bar',
-      loaderColor: '#fc8132',
-      loaderBgColor: '#222222',
-      loaderOpacity: 1,
-      loaderPadding: 0,
-      time: 2000,
-      transPeriod: 1500,
-      pauseOnClick: true,
-      pagination: false,
-      height: '100%',
-    });
-  }else{
-    $('.camera_wrap').camera({
-      playPause: false,
-      navigation: false,
-      navigationHover: true,
-      hover: false,
-      loader: 'bar',
-      loaderColor: '#fc8132',
-      loaderBgColor: '#222222',
-      loaderOpacity: 1,
-      loaderPadding: 0,
-      time: 2000,
-      transPeriod: 1500,
-      pauseOnClick: true,
-      pagination: false,
-      height: '35%',
-    });
-  }
-
-
-  });
-  </script>
-
-
 </body>
-
-
 </html>
