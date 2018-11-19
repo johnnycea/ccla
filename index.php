@@ -84,14 +84,10 @@ require("./clases/Noticia.php");
                              });
                            },
                            eventDrop: function(event, delta, revertFunc) { // si changement de position
-
                              modificarFechaActividad(event.id,event.start.format(),event.end.format());
-
                            },
                            eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
-
                              modificarFechaActividad(event.id,event.start.format(),event.end.format());
-
                            },
 
 
