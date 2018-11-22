@@ -28,8 +28,8 @@ function guardar_nueva_empresa(){
 				contentType: false,
 				processData:false,
 				success:function(respuesta){
-					 alert(respuesta);
-
+					 // alert(respuesta);
+           // console.log(respuesta);
 					 if(respuesta==1){
 						 swal("Guardado","Los datos se han guardado correctamente.","success");
 						 eliminarCamposEmpresa();

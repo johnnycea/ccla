@@ -5,7 +5,7 @@ class Estado_empresa{
 
  private $tabla;
  private $id_estado;
- private $descripcion_estado;
+ private $descripcion;
 
  public function setTabla($parametro){
    $this->tabla = $parametro;
@@ -13,8 +13,8 @@ class Estado_empresa{
  public function setIdEstado($id_estado){
    $this->id_estado = $id_estado;
  }
- public function setDescripcionEstado($descripcion_estado){
-   $this->descripcion_estado = $descripcion_estado;
+ public function setDescripcion($descripcion){
+   $this->descripcion = $descripcion;
  }
 
  public function obtenerEstados($condiciones){

@@ -69,8 +69,8 @@ Class Directorio{
     if($Conexion->query($consulta)){
         return true;
     }else{
-        echo $consulta;
-        // return false;
+        // echo $consulta;
+        return false;
     }
 
   }

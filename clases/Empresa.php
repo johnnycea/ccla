@@ -13,7 +13,7 @@ Class Empresa{
   private $sitio_web;
   private $facebook;
   private $instagram;
-  private $estado_empresa;
+  private $estado;
 
   public function setIdEmpresa($id_empresa){
     $this->id_empresa = $id_empresa;
@@ -50,8 +50,8 @@ Class Empresa{
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert INTO tb_empresas_relacionadas (nombre_empresa, descripcion_empresa, telefono, correo, sitio_web, facebook, instagram, estado)
-      VALUES ('".$this->nombre_empresa."', '".$this->descripcion."', '".$this->telefono."', '".$this->correo."', '".$this->sitio_web."','".$this->facebook."', '".$this->instagram."','".$this->estado."');";
+    $consulta = "insert INTO tb_empresas_relacionadas (nombre_empresa, descripcion_empresa, ruta_imagen, telefono, correo, sitio_web, facebook, instagram, estado)
+      VALUES ('".$this->nombre_empresa."', '".$this->descripcion."', '".$this->imagen."' , '".$this->telefono."', '".$this->correo."', '".$this->sitio_web."','".$this->facebook."', '".$this->instagram."','".$this->estado."');";
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");
           $resultadoNuevoId = $resultadoNuevoId->fetch_array();
