@@ -234,10 +234,10 @@ function cargarMenuPrincipal(){
 
 <style>
 .bg-light {
-    background-color: #2d5386!important;
+    background-color: #22678f!important;
 }
 .nav-link{
-    background-color: #2d5386!important;
+    background-color: #22678f!important;
     color:white!important;
     font-size: 20px;
     margin-right: 2px;
