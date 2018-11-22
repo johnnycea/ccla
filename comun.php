@@ -185,6 +185,7 @@ function cargarMenuConfiguraciones(){
       echo '<a href="./administracion_articulo.php" class="btn btn-info col-12">Articulo </a>';
   }
 
+
   echo'<hr>';
 
   if($url=="administracion_evento.php"){
@@ -193,6 +194,13 @@ function cargarMenuConfiguraciones(){
       echo '<a href="./administracion_evento.php" class="btn btn-info col-12">Eventos </a>';
   }
 
+  echo'<hr>';
+
+  if($url=="administracion_empresas.php"){
+    echo '<a href="./administracion_empresas.php" class="active btn btn-info col-12">Empresa </a>';
+  }else{
+    echo '<a href="./administracion_empresas.php" class="btn btn-info col-12">Empresa </a>';
+  }
   echo'<hr>';
 
   echo '<a href="./cerrarSesion.php" class=" btn btn-danger col-12">Cerrar Sesión </a>';

@@ -6,7 +6,7 @@ Class Empresa{
 
   private $id_empresa;
   private $nombre_empresa;
-  private $descripcion_empresa;
+  private $descripcion;
   private $imagen;
   private $telefono;
   private $correo;
@@ -18,48 +18,40 @@ Class Empresa{
   public function setIdEmpresa($id_empresa){
     $this->id_empresa = $id_empresa;
   }
-
   public function setNombre ($nombre_empresa){
     $this->nombre_empresa=$nombre_empresa;
   }
-
-  public function setDescripcion ($descripcion_empresa){
-    $this->descripcion_empresa=$descripcion_empresa;
+  public function setDescripcion ($descripcion){
+    $this->descripcion=$descripcion;
   }
-  public function setIdImagen ($id_imagen){
-    $this->id_imagen=$id_imagen;
+  public function setImagen ($imagen){
+    $this->imagen = $imagen;
   }
-  public function setVideo ($video_empresa){
-    $this->video_empresa=$video_empresa;
+  public function setTelefono ($telefono){
+    $this->telefono=$telefono;
   }
-
-    public function setCoordenadas ($coordenadas_empresa){
-      $this->coordenadas_empresa=$coordenadas_empresa;
+    public function setCorreo ($correo){
+      $this->correo=$correo;
     }
-
+    public function setSitioWeb ($sitio_web){
+      $this->sitio_web=$sitio_web;
+    }
     public function setFacebook ($facebook){
       $this->facebook=$facebook;
     }
-
     public function setInstagram ($instagram){
       $this->instagram=$instagram;
     }
-
-    public function setHorario ($horario){
-      $this->horario=$horario;
-    }
-
-    public function setEstado ($estado_empresa){
-      $this->estado_empresa=$estado_empresa;
+    public function setEstado ($estado){
+      $this->estado=$estado;
     }
 
   public function crearEmpresa(){
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "insert INTO tb_empresas (nombre_empresa, descripcion_empresa, categoria_empresa, video_empresa, coordenadas, facebook, instagram, horario)
-                        VALUES ('".$this->nombre_empresa."', '".$this->descripcion_empresa."', '".$this->categoria_empresa."', '".$this->video_empresa."', '".$this->coordenadas_empresa."', '".$this->facebook."', '".$this->instagram."','".$this->horario."');";
-
+    $consulta = "insert INTO tb_empresas_relacionadas (nombre_empresa, descripcion_empresa, telefono, correo, sitio_web, facebook, instagram, estado)
+      VALUES ('".$this->nombre_empresa."', '".$this->descripcion."', '".$this->telefono."', '".$this->correo."', '".$this->sitio_web."','".$this->facebook."', '".$this->instagram."','".$this->estado."');";
     if($Conexion->query($consulta)){
           $resultadoNuevoId = $Conexion->query("SELECT LAST_INSERT_ID() as id");
           $resultadoNuevoId = $resultadoNuevoId->fetch_array();
@@ -78,7 +70,7 @@ Class Empresa{
          SET nombre_empresa = '".$this->nombre_empresa."',
           descripcion_empresa = '".$this->descripcion_empresa."',
           categoria_empresa = '".$this->categoria_empresa."',
-          estado_empresa = '".$this->estado_empresa."',
+          ruta_imagen = '".$this->estado_empresa."',
           video_empresa = '".$this->video_empresa."',
           coordenadas = '".$this->coordenadas_empresa."',
           facebook = '".$this->facebook."',
@@ -98,7 +90,7 @@ Class Empresa{
     $Conexion = new Conexion();
     $Conexion = $Conexion->conectar();
 
-    $consulta = "update tb_empresas set estado_empresa='3' WHERE (id_empresa = ".$this->id_empresa.") ";
+    $consulta = "update tb_empresas_relacionadas set estado_empresa='2' WHERE (id_empresa = ".$this->id_empresa.") ";
 
     if($Conexion->query($consulta)){
         return true;
@@ -124,37 +116,16 @@ Class Empresa{
 
   }
 
-  public function obtenerEmpresasActivas(){
+  public function obtenerEmpresas(){
      $Conexion = new Conexion();
      $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("SELECT * FROM tb_empresas e
-                                              left join tb_imagenes_empresa ie on e.id_empresa=ie.id_empresa
-                                              where ie.tipo_imagen=1 AND estado_empresa=1");
+     $resultado_consulta = $Conexion->query("SELECT * FROM tb_empresas_relacionadas");
      return $resultado_consulta;
 
   }
 
-  public function obtenerEmpresasActivasInactivas(){
-     $Conexion = new Conexion();
-     $Conexion = $Conexion->conectar();
 
-     $resultado_consulta = $Conexion->query("SELECT * FROM tb_empresas e
-                                               where ( estado_empresa=1 or estado_empresa=2 )");
-     return $resultado_consulta;
-
-  }
-
-  public function obtenerEmpresasPorCategorias(){
-     $Conexion = new Conexion();
-     $Conexion = $Conexion->conectar();
-
-     $resultado_consulta = $Conexion->query("SELECT * from tb_empresas e
-                                              left join tb_imagenes_empresa ie on e.id_empresa=ie.id_empresa
-                                              where ie.tipo_imagen=1 AND categoria_empresa = ".$this->categoria_empresa);
-     return $resultado_consulta;
-
-    }
 
   public function buscarEmpresas($texto_buscar){
 
@@ -174,29 +145,6 @@ Class Empresa{
     }
 
 
-    public function obtenerEmpresas(){
-       $Conexion = new Conexion();
-       $Conexion = $Conexion->conectar();
-
-       $resultado_consulta = $Conexion->query("SELECT * from tb_empresas e
-                                                left join tb_imagenes_empresa ie on e.id_empresa=ie.id_empresa
-                                                where ie.tipo_imagen=1 and e.id_empresa =".$this->id_empresa);
-
-       return $resultado_consulta;
-
-      }
-
-
-        public function obtenerEmpresasAfiche(){
-           $Conexion = new Conexion();
-           $Conexion = $Conexion->conectar();
-
-           $resultado_consulta = $Conexion->query("SELECT * FROM tb_empresas e
-                                                    left join tb_imagenes_empresa ie on e.id_empresa=ie.id_empresa
-                                                    where ie.tipo_imagen=2 AND estado_empresa=1 AND e.id_empresa=".$this->id_empresa);
-           return $resultado_consulta;
-
-        }
 
         public function obtenerImgEmpresas(){
           $Conexion = new Conexion();
